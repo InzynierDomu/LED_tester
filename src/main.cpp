@@ -8,7 +8,6 @@
 
 #include "Adafruit_NeoPixel.h"
 #include "Free_Fonts.h"
-#include "Seeed_FS.h"
 #include "TFT_eSPI.h"
 
 #include <Arduino.h>
@@ -28,7 +27,7 @@ enum class Mode
 };
 
 ///< possible joystick cursor moves
-enum Cursor_move
+enum class Cursor_move
 {
   up,
   down,
@@ -151,7 +150,7 @@ void move_cursor(Cursor_move move)
  */
 void ws_color_tester_screen()
 {
-  m_screen.fillRect(0, 0, 320, 240, TFT_WHITE);
+  m_screen.fillScreen(TFT_WHITE);
 
   m_screen.fillCircle(36, m_cursor_position_x[static_cast<Cursor_position_name>(m_position)], 6, TFT_RED);
 
@@ -206,8 +205,7 @@ void setup()
   pinMode(WIO_5S_RIGHT, INPUT);
 
   m_screen.begin();
-  m_screen.setRotation(3);
-  m_screen.fillScreen(TFT_WHITE);
+  m_screen.setRotation(3);  
 
   m_screen.setFreeFont(&FreeSansBold12pt7b);
   m_screen.setTextColor(TFT_BLACK);
