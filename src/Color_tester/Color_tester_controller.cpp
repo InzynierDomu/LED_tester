@@ -9,8 +9,6 @@ Color_tester_controller::Color_tester_controller(Hal& hal, Color_tester_model& m
 , m_view(view)
 {}
 
-Color_tester_controller::~Color_tester_controller() {}
-
 void Color_tester_controller::active()
 {
   m_model.color.color_short = color16(m_model.color.color_saturation);

@@ -10,8 +10,6 @@ Color_tester_view::Color_tester_view(Hal& hal, Color_tester_model& model)
 , m_shift_from_cursor(6)
 {}
 
-Color_tester_view::~Color_tester_view() {}
-
 void Color_tester_view::print_screen()
 {
   auto screen = m_hal.get_screen();

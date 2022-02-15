@@ -13,7 +13,7 @@ class Color_tester_view
 {
   public:
   Color_tester_view(Hal& hal, Color_tester_model& model);
-  ~Color_tester_view();
+
   void print_screen();
   void update_color_saturation();
   void update_cursor();

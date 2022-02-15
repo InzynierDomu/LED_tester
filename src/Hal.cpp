@@ -58,7 +58,7 @@ void Hal::check_button()
   }
 }
 
-void Hal::set_keyboard_callback(void (Controller::*callback)(Cursor_move), Controller* controller)
+void Hal::set_keyboard_callback(/*void (Controller::*callback)(Cursor_move)*/callback_cursor_move callback, Controller* controller)
 {
   m_callback = callback;
   m_controller = controller;
