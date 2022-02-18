@@ -1,6 +1,8 @@
 #pragma once
 
+#include "Adafruit_NeoPixel.h"
 #include "IHal.h"
+#include "TFT_eSPI.h"
 
 class Hal : public IHal
 {
@@ -9,8 +11,14 @@ class Hal : public IHal
   ~Hal();
 
   void init() override;
-  TFT_eSPI& get_screen() override;
-  void set_color_rgb(uint32_t color) override;
+  void clear_screen() override;
+  void clear_part_screen(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) override;
+  void print_text(const String& text, const uint16_t position_x, const uint16_t position_y) override;
+  void draw_cursor(const uint16_t position_x, const uint16_t position_y) override;
+  void draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) override;
+  void draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height,
+                 const uint16_t color) override;
+  void set_color_rgb(const uint32_t color) override;
   void check_button() override;
   void set_keyboard_callback(callback_cursor_move callback, Controller* controller) override;
 

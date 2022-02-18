@@ -1,8 +1,10 @@
 #pragma once
 
+#ifndef UNIT_TEST
+#include "Hal.h"
+#endif
 #include "Color_tester_model.h"
 #include "Free_Fonts.h"
-#include "Hal.h"
 
 #include <stdint.h>
 

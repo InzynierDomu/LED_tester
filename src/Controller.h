@@ -1,4 +1,6 @@
+#ifndef UNIT_TEST
 #include "Hal.h"
+#endif
 
 class Controller
 {

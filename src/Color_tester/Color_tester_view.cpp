@@ -12,17 +12,15 @@ Color_tester_view::Color_tester_view(Hal& hal, Color_tester_model& model)
 
 void Color_tester_view::print_screen()
 {
-  auto screen = m_hal.get_screen();
+  m_hal.clear_screen();
 
-  screen.fillScreen(TFT_WHITE);
+  m_hal.draw_cursor(36, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)]);
 
-  screen.fillCircle(36, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)], 6, TFT_RED);
+  m_hal.print_text("R", 50, 70);
+  m_hal.print_text("G", 50, 120);
+  m_hal.print_text("B", 50, 170);
 
-  screen.drawString("R", 50, 70);
-  screen.drawString("G", 50, 120);
-  screen.drawString("B", 50, 170);
-
-  screen.drawRect(199, 79, 82, 82, TFT_BLACK);
+  m_hal.draw_frame(199, 79, 82, 82);
 
   print_color(0);
   print_color(1);
@@ -36,7 +34,7 @@ void Color_tester_view::print_screen()
  */
 void Color_tester_view::update_color_saturation()
 {
-  m_hal.get_screen().fillRect(90, m_cursor_position_x[m_model.position] - m_shift_from_cursor, 60, 20, TFT_WHITE);
+  m_hal.clear_part_screen(90, m_cursor_position_x[m_model.position] - m_shift_from_cursor, 60, 20);
   print_color(m_model.position);
   update_color();
 }
@@ -46,25 +44,22 @@ void Color_tester_view::update_color_saturation()
  */
 void Color_tester_view::update_color()
 {
-  auto screen = m_hal.get_screen();
-  screen.fillRect(200, 80, 80, 80, m_model.color.color_short);
-  screen.fillRect(179, 170, 130, 22, TFT_WHITE);
+  m_hal.draw_rect(200, 80, 80, 80, m_model.color.color_short);
+  m_hal.clear_part_screen(179, 170, 130, 22);
   String color_description = String(m_model.color.color_long, HEX);
   color_description.toUpperCase();
-  screen.drawString("0x" + color_description, 179, 170);
+  m_hal.print_text("0x" + color_description, 179, 170);
 }
 
 void Color_tester_view::update_cursor()
 {
-  auto screen = m_hal.get_screen();
-  screen.fillRect(30, 70, 13, 240, TFT_WHITE);
-  screen.fillCircle(36, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)], 6, TFT_RED);
+  m_hal.clear_part_screen(30, 70, 13, 240);
+  m_hal.draw_cursor(36, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)]);
 }
 
 void Color_tester_view::print_color(uint8_t position)
 {
-  m_hal.get_screen().drawString(
-      String(m_model.color.color_saturation[position]), 90, m_cursor_position_x[position] - m_shift_from_cursor);
+  m_hal.print_text(String(m_model.color.color_saturation[position]), 90, m_cursor_position_x[position] - m_shift_from_cursor);
 }
 
 } // namespace Color_tester
