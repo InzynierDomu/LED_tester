@@ -61,7 +61,7 @@ void Color_tester_view::update_cursor()
 void Color_tester_view::print_color(uint8_t position)
 {
   char color_val[3];
-  itoa(m_model.color.color_saturation[position], color_val, 3);
+  itoa(m_model.color.color_saturation[position], color_val, 10);
   m_hal.print_text(color_val, 90, m_cursor_position_x[position] - m_shift_from_cursor);
 }
 
