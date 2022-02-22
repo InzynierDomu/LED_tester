@@ -3,7 +3,7 @@
 namespace Color_tester
 {
 
-Color_tester_controller::Color_tester_controller(Hal& hal, Color_tester_model& model, Color_tester_view& view)
+Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view& view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)

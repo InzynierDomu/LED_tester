@@ -1,7 +1,8 @@
+#include "../test/native/mocks/Hal_mock.h"
 #include "Color_tester/Color_tester_controller.h"
-#include "../mocks/Hal_mock.h"
 
 #include "gtest/gtest.h"
+
 
 TEST(Color_Controller, convert_to_16)
 {

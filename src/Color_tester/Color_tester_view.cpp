@@ -3,7 +3,7 @@
 namespace Color_tester
 {
 
-Color_tester_view::Color_tester_view(Hal& hal, Color_tester_model& model)
+Color_tester_view::Color_tester_view(IHal& hal, Color_tester_model& model)
 : m_model(model)
 , m_hal(hal)
 , m_cursor_position_x{76, 126, 176}
@@ -48,7 +48,8 @@ void Color_tester_view::update_color()
   m_hal.clear_part_screen(179, 170, 130, 22);
   String color_description = String(m_model.color.color_long, HEX);
   color_description.toUpperCase();
-  m_hal.print_text("0x" + color_description, 179, 170);
+  color_description = "0x" + color_description;
+  m_hal.print_text(color_description.c_str(), 179, 170);
 }
 
 void Color_tester_view::update_cursor()
@@ -59,7 +60,9 @@ void Color_tester_view::update_cursor()
 
 void Color_tester_view::print_color(uint8_t position)
 {
-  m_hal.print_text(String(m_model.color.color_saturation[position]), 90, m_cursor_position_x[position] - m_shift_from_cursor);
+  char color_val[3];
+  itoa(m_model.color.color_saturation[position], color_val, 3);
+  m_hal.print_text(color_val, 90, m_cursor_position_x[position] - m_shift_from_cursor);
 }
 
 } // namespace Color_tester

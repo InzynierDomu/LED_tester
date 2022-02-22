@@ -12,7 +12,7 @@ namespace Color_tester
 class Color_tester_controller : public Controller
 {
   public:
-  Color_tester_controller(Hal& hal, Color_tester_model& model, Color_tester_view& view);
+  Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view& view);
 
   void active();
   void keyboar_reaction(Cursor_move move);
@@ -23,7 +23,7 @@ class Color_tester_controller : public Controller
   void change_color(Cursor_move move);
   void move_cursor(Cursor_move move);
 
-  Hal& m_hal;
+  IHal& m_hal;
   Color_tester_model& m_model;
   Color_tester_view& m_view;
 };

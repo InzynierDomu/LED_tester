@@ -14,7 +14,7 @@ namespace Color_tester
 class Color_tester_view
 {
   public:
-  Color_tester_view(Hal& hal, Color_tester_model& model);
+  Color_tester_view(IHal& hal, Color_tester_model& model);
 
   void print_screen();
   void update_color_saturation();
@@ -27,7 +27,7 @@ class Color_tester_view
   const uint16_t m_shift_from_cursor; ///< difference for position cursor and saturation color value
 
   Color_tester_model& m_model;
-  Hal& m_hal;
+  IHal& m_hal;
 };
 
 } // namespace Color_tester
