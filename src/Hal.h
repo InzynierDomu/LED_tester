@@ -8,7 +8,7 @@ class Hal : public IHal
 {
   public:
   Hal();
-  ~Hal();
+  ~Hal() = default;
 
   void init() override;
   void clear_screen() override;

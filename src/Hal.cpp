@@ -6,8 +6,6 @@ Hal::Hal()
 : m_ws_leds{m_led_ws_count, m_led_ws_pin, NEO_GRB + NEO_KHZ800}
 {}
 
-Hal::~Hal() {}
-
 void Hal::init()
 {
   pinMode(WIO_5S_UP, INPUT);
