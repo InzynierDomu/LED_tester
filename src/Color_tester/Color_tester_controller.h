@@ -14,8 +14,8 @@ class Color_tester_controller : public Controller
   public:
   Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view& view);
 
-  void active();
-  void keyboar_reaction(Cursor_move move);
+  void active() override;
+  void keyboar_reaction(Cursor_move move) override;
 
   private:
   uint16_t color16(uint8_t* colors_saturation);

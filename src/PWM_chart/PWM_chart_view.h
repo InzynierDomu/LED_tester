@@ -9,11 +9,11 @@ namespace PWM_chart
 class PWM_chart_view
 {
     public:
-    PWM_chart_view(Hal& hal, PWM_chart_model& model);
+    PWM_chart_view(IHal& hal, PWM_chart_model& model);
     void print_screen();
 
     private:
-    Hal& m_hal;
+    IHal& m_hal;
     PWM_chart_model& m_model;
 };
 

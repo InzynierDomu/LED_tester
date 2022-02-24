@@ -3,7 +3,7 @@
 namespace PWM_chart
 {
 
-PWM_chart_view::PWM_chart_view(Hal& hal, PWM_chart_model& model)
+PWM_chart_view::PWM_chart_view(IHal& hal, PWM_chart_model& model)
 :m_hal(hal)
 ,m_model(model)
 {}

@@ -3,7 +3,6 @@
 #include "PWM_chart_model.h"
 #include "PWM_chart_view.h"
 #include "Controller.h"
-#include "Hal.h"
 
 namespace PWM_chart
 {
@@ -11,13 +10,13 @@ namespace PWM_chart
 class PWM_chart_controller : public Controller
 {
     public:
-    PWM_chart_controller(Hal& hal, PWM_chart_model& model, PWM_chart_view& view);
+    PWM_chart_controller(IHal& hal, PWM_chart_model& model, PWM_chart_view& view);
     
-    void active();
-    void keyboard_reaction(Cursor_move move);
+    void active() override;
+    // void keyboard_reaction(Cursor_move move) override;
 
     private:    
-    Hal& m_hal;
+    IHal& m_hal;
     PWM_chart_model& m_model;
     PWM_chart_view& m_veiw;
 };
