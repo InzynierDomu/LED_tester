@@ -14,8 +14,11 @@ class PWM_view
   PWM_view(IHal& hal, PWM_model& model);
 
   void print_screen();
+  void update_duty();
 
   private:
+  void print_pwm_duty();
+
   IHal& m_hal;
   PWM_model& m_model;
 };

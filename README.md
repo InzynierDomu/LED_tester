@@ -23,7 +23,7 @@ To do this, use the joystick: up / down to select a color and right / left to in
 
 ## Scheme
 
-The code is prepared for Wio Terminal. <br>
+The code is prepared for Wio Terminal. About platform: [video](https://youtu.be/NfK_IA_MOQ4). <br>
 WS2812 data pin is connected to BCM27.
 
 ## IDE

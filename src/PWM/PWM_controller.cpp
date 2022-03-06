@@ -21,9 +21,15 @@ void PWM_controller::active()
 void PWM_controller::keyboar_reaction(Cursor_move move)
 {
   if (move == Cursor_move::up)
-  {}
+  {
+    m_model.duty++;
+  }
   else if (move == Cursor_move::down)
-  {}
+  {
+    m_model.duty--;
+  }
+
+  m_view->update_duty();
 }
 
 } // namespace PWM
