@@ -1,4 +1,4 @@
-#pragma onece
+#pragma once
 
 #ifndef UNIT_TEST
 #include "Hal.h"
@@ -12,6 +12,8 @@ class PWM_view
 {
   public:
   PWM_view(IHal& hal, PWM_model& model);
+
+  void print_screen();
 
   private:
   IHal& m_hal;

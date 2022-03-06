@@ -32,8 +32,8 @@ struct Color_tester_model
   , color{}
   {}
   ~Color_tester_model() {}
-  Color color;
   Cursor_position_name position; ///< current color to posible change saturation value
+  Color color;
 };
 
 } // namespace Color_tester

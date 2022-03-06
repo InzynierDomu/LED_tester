@@ -3,19 +3,24 @@
 namespace Color_tester
 {
 
-Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view& view)
+Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view* view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
 {}
+
+Color_tester_controller::~Color_tester_controller()
+{
+  delete m_view;
+}
 
 void Color_tester_controller::active()
 {
   m_model.color.color_short = color16(m_model.color.color_saturation);
   m_model.color.color_long = color32(m_model.color.color_saturation);
 
-  m_view.print_screen();
-  m_hal.set_keyboard_callback(&Controller::keyboar_reaction, this);
+  m_view->print_screen();
+  m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);
 }
 
 /**
@@ -70,7 +75,7 @@ void Color_tester_controller::change_color(Cursor_move move)
   m_model.color.color_short = color16(m_model.color.color_saturation);
   m_model.color.color_long = color32(m_model.color.color_saturation);
 
-  m_view.update_color_saturation();
+  m_view->update_color_saturation();
   m_hal.set_color_rgb(m_model.color.color_long);
 }
 
@@ -103,7 +108,7 @@ void Color_tester_controller::move_cursor(Cursor_move move)
     }
   }
 
-  m_view.update_cursor();
+  m_view->update_cursor();
 }
 
 } // namespace Color_tester

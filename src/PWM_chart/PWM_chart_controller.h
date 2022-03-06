@@ -2,12 +2,12 @@
 
 #include "PWM_chart_model.h"
 #include "PWM_chart_view.h"
-#include "Controller.h"
+#include "IController.h"
 
 namespace PWM_chart
 {
 
-class PWM_chart_controller : public Controller
+class PWM_chart_controller : public IController
 {
     public:
     PWM_chart_controller(IHal& hal, PWM_chart_model& model, PWM_chart_view& view);

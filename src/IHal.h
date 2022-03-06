@@ -11,9 +11,17 @@ enum class Cursor_move
   right
 };
 
-class Controller;
+///< modes which device possible running
+enum class Mode
+{
+  ws_color_tester,
+  pwm_generator,
+  characteristic_tester
+};
 
-using callback_cursor_move = void (Controller::*)(Cursor_move);
+class IController;
+
+using callback_cursor_move = void (IController::*)(Cursor_move);
 
 class IHal
 {
@@ -29,5 +37,6 @@ class IHal
                          const uint16_t color) = 0;
   virtual void set_color_rgb(const uint32_t color) = 0;
   virtual void check_button() = 0;
-  virtual void set_keyboard_callback(callback_cursor_move callback, Controller* controller) = 0;
+  virtual bool check_button_mode(Mode& mode) = 0;
+  virtual void set_keyboard_callback(callback_cursor_move callback, IController* controller) = 0;
 };

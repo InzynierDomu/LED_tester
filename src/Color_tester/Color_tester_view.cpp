@@ -4,8 +4,8 @@ namespace Color_tester
 {
 
 Color_tester_view::Color_tester_view(IHal& hal, Color_tester_model& model)
-: m_model(model)
-, m_hal(hal)
+: m_hal(hal)
+, m_model(model)
 , m_cursor_position_x{76, 126, 176}
 , m_shift_from_cursor(6)
 {}

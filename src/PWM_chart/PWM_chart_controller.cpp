@@ -10,7 +10,7 @@ PWM_chart_controller::PWM_chart_controller(IHal& hal, PWM_chart_model& model, PW
 
 void PWM_chart_controller::active()
 {
-  m_hal.set_keyboard_callback(&Controller::keyboar_reaction, this);
+  m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);
 }
 // void PWM_chart_controller::keyboard_reaction(Cursor_move move) {}
 

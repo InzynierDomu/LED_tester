@@ -6,30 +6,47 @@
  * @date 01-2022
  */
 
-#include "Adafruit_NeoPixel.h"
 #include "Color_tester/Color_tester_controller.h"
-#include "Color_tester/Color_tester_model.h"
-#include "Color_tester/Color_tester_view.h"
-#include "Free_Fonts.h"
+#include "PWM/PWM_controller.h"
 #include "Hal.h"
-#include "TFT_eSPI.h"
+#include "IController.h"
 
 #include <Arduino.h>
 
 Hal m_hal;
 Color_tester::Color_tester_model m_color_tester_model;
-Color_tester::Color_tester_view m_color_tester_view(m_hal, m_color_tester_model);
-Color_tester::Color_tester_controller m_color_tester_controller(m_hal, m_color_tester_model, m_color_tester_view);
+PWM::PWM_model m_PWM_model;
+IController* m_controller;
 
-///< modes which device possible running
-// enum class Mode
-// {
-//   ws_color_tester,
-//   pwm_generator,
-//   characteristic_tester
-// };
+Mode m_mode = Mode::ws_color_tester; ///< mode which device current running
 
-// Mode m_mode = Mode::ws_color_tester; ///< mode which device current running
+void change_mode(Mode mode)
+{
+  if (m_controller != nullptr)
+  {
+    delete m_controller;
+  }
+
+  switch (mode)
+  {
+    case Mode::ws_color_tester:
+    {
+      Color_tester::Color_tester_view* color_tester_view = new Color_tester::Color_tester_view(m_hal, m_color_tester_model);
+      m_controller = new Color_tester::Color_tester_controller(m_hal, m_color_tester_model, color_tester_view);
+      break;
+    }
+    case Mode::pwm_generator:
+    {
+      PWM::PWM_view* pwm_view = new PWM::PWM_view(m_hal, m_PWM_model);
+      m_controller = new PWM::PWM_controller(m_hal, m_PWM_model, pwm_view);
+      break;
+    }
+    default:
+      break;
+  }
+
+  m_controller->active();
+}
 
 /**
  * @brief setup
@@ -37,7 +54,7 @@ Color_tester::Color_tester_controller m_color_tester_controller(m_hal, m_color_t
 void setup()
 {
   m_hal.init();
-  m_color_tester_controller.active();
+  change_mode(m_mode);
 }
 
 /**
@@ -45,5 +62,9 @@ void setup()
  */
 void loop()
 {
+  if (m_hal.check_button_mode(m_mode))
+  {    
+    change_mode(m_mode);  
+  }
   m_hal.check_button();
 }

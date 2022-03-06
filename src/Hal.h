@@ -20,14 +20,14 @@ class Hal : public IHal
                  const uint16_t color) override;
   void set_color_rgb(const uint32_t color) override;
   void check_button() override;
-  void set_keyboard_callback(callback_cursor_move callback, Controller* controller) override;
+  bool check_button_mode(Mode& mode) override;
+  void set_keyboard_callback(callback_cursor_move callback, IController* controller) override;
 
   private:
   const uint8_t m_led_ws_pin = BCM27; ///< pin for WS2812 LED
   const uint8_t m_led_ws_count = 1; ///< WS2812 LED count
-  callback_cursor_move m_callback;
-  Controller* m_controller;
-
   TFT_eSPI m_screen; ///< TFT screen 320x240
   Adafruit_NeoPixel m_ws_leds; ///< WS2812 LED
+  callback_cursor_move m_callback;
+  IController* m_controller;
 };

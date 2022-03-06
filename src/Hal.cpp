@@ -4,6 +4,8 @@
 
 Hal::Hal()
 : m_ws_leds{m_led_ws_count, m_led_ws_pin, NEO_GRB + NEO_KHZ800}
+, m_controller(nullptr)
+, m_callback(nullptr)
 {}
 
 void Hal::init()
@@ -12,6 +14,9 @@ void Hal::init()
   pinMode(WIO_5S_DOWN, INPUT);
   pinMode(WIO_5S_LEFT, INPUT);
   pinMode(WIO_5S_RIGHT, INPUT);
+  pinMode(WIO_KEY_A, INPUT);
+  pinMode(WIO_KEY_B, INPUT);
+  pinMode(WIO_KEY_C, INPUT);
 
   m_screen.begin();
   m_screen.setRotation(3);
@@ -54,29 +59,58 @@ void Hal::set_color_rgb(const uint32_t color)
 
 void Hal::check_button()
 {
-  if (digitalRead(WIO_5S_DOWN) == LOW)
+  if (m_controller != nullptr && m_callback != nullptr)
   {
-    (m_controller->*m_callback)(Cursor_move::down);
-    delay(200);
-  }
-  if (digitalRead(WIO_5S_UP) == LOW)
-  {
-    (m_controller->*m_callback)(Cursor_move::up);
-    delay(200);
-  }
-  if (digitalRead(WIO_5S_RIGHT) == LOW)
-  {
-    (m_controller->*m_callback)(Cursor_move::right);
-    delay(100);
-  }
-  if (digitalRead(WIO_5S_LEFT) == LOW)
-  {
-    (m_controller->*m_callback)(Cursor_move::left);
-    delay(100);
+    if (digitalRead(WIO_5S_DOWN) == LOW)
+    {
+      (m_controller->*m_callback)(Cursor_move::down);
+      delay(200);
+    }
+    if (digitalRead(WIO_5S_UP) == LOW)
+    {
+      (m_controller->*m_callback)(Cursor_move::up);
+      delay(200);
+    }
+    if (digitalRead(WIO_5S_RIGHT) == LOW)
+    {
+      (m_controller->*m_callback)(Cursor_move::right);
+      delay(100);
+    }
+    if (digitalRead(WIO_5S_LEFT) == LOW)
+    {
+      (m_controller->*m_callback)(Cursor_move::left);
+      delay(100);
+    }
   }
 }
 
-void Hal::set_keyboard_callback(callback_cursor_move callback, Controller* controller)
+bool Hal::check_button_mode(Mode& mode)
+{
+  Mode new_mode = mode;
+  if(digitalRead(WIO_KEY_A) == LOW)
+  {
+    new_mode = Mode::ws_color_tester;
+    delay(100);
+  }
+  else if(digitalRead(WIO_KEY_B) == LOW)
+  {
+    new_mode = Mode::pwm_generator;
+    delay(100);
+  }
+  else
+  {
+    return false;
+  }
+
+  if(new_mode == mode)
+  {
+    return false;
+  }
+  mode = new_mode;
+  return true;
+}
+
+void Hal::set_keyboard_callback(callback_cursor_move callback, IController* controller)
 {
   m_callback = callback;
   m_controller = controller;

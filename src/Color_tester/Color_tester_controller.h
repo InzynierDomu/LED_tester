@@ -2,17 +2,18 @@
 
 #include "Color_tester_model.h"
 #include "Color_tester_view.h"
-#include "Controller.h"
+#include "IController.h"
 
 #include <stdint.h>
 
 namespace Color_tester
 {
 
-class Color_tester_controller : public Controller
+class Color_tester_controller : public IController
 {
   public:
-  Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view& view);
+  Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view* view);
+  ~Color_tester_controller();
 
   void active() override;
   void keyboar_reaction(Cursor_move move) override;
@@ -25,7 +26,7 @@ class Color_tester_controller : public Controller
 
   IHal& m_hal;
   Color_tester_model& m_model;
-  Color_tester_view& m_view;
+  Color_tester_view* m_view;
 };
 
 } // namespace Color_tester

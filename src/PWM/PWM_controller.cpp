@@ -2,16 +2,28 @@
 
 namespace PWM
 {
-PWM_controller::PWM_controller(IHal& hal, PWM_model& model, PWM_view& view)
+PWM_controller::PWM_controller(IHal& hal, PWM_model& model, PWM_view* view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
 {}
 
+PWM_controller::~PWM_controller()
+{
+  delete m_view;
+}
+
 void PWM_controller::active()
 {
-  m_hal.set_keyboard_callback(&Controller::keyboar_reaction, this);
+  m_view->print_screen();
+  m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);
 }
-// void PWM_controllerkeyboard_reaction(Cursor_move move) {}
+void PWM_controller::keyboar_reaction(Cursor_move move)
+{
+  if (move == Cursor_move::up)
+  {}
+  else if (move == Cursor_move::down)
+  {}
+}
 
 } // namespace PWM
