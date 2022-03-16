@@ -51,10 +51,12 @@ void Color_tester_controller::keyboar_reaction(Cursor_move move)
   if (move == Cursor_move::up || move == Cursor_move::down)
   {
     move_cursor(move);
+    delay(200);
   }
   else if (move == Cursor_move::left || move == Cursor_move::right)
   {
     change_color(move);
+    delay(70);
   }
 }
 

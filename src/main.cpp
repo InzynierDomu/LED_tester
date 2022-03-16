@@ -7,9 +7,9 @@
  */
 
 #include "Color_tester/Color_tester_controller.h"
-#include "PWM/PWM_controller.h"
 #include "Hal.h"
 #include "IController.h"
+#include "PWM/PWM_controller.h"
 
 #include <Arduino.h>
 
@@ -63,8 +63,8 @@ void setup()
 void loop()
 {
   if (m_hal.check_button_mode(m_mode))
-  {    
-    change_mode(m_mode);  
+  {
+    change_mode(m_mode);
   }
   m_hal.check_button();
 }

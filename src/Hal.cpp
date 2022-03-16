@@ -51,10 +51,31 @@ void Hal::draw_rect(const uint16_t position_x, const uint16_t position_y, const 
   m_screen.fillRect(position_x, position_y, width, height, color);
 }
 
+void Hal::draw_gradient_circle(const uint16_t position_x, const uint16_t position_y, const uint16_t radius, const uint16_t value)
+{
+  uint8_t max_r = map(value, 0, 255, 0, 31);
+  uint8_t max_g = map(value, 0, 255, 0, 63);
+  for (uint16_t i = 1; i < radius; i++)
+  {
+    uint8_t b_on_circle = map(i, radius, 1, 31, 0);
+    uint8_t r_on_circle = map(i, radius, 1, 31, max_r);
+    uint8_t g_on_circle = map(i, radius, 1, 63, max_g);
+    uint16_t color = b_on_circle;
+    color += r_on_circle << 11;
+    color += g_on_circle << 5;
+    m_screen.drawCircle(position_x, position_y, i, color);
+  }
+}
+
 void Hal::set_color_rgb(const uint32_t color)
 {
   m_ws_leds.setPixelColor(0, color);
   m_ws_leds.show();
+}
+
+void Hal::set_PWM_output(const uint16_t duty)
+{
+  analogWrite(m_led_pin, duty);
 }
 
 void Hal::check_button()
@@ -64,22 +85,18 @@ void Hal::check_button()
     if (digitalRead(WIO_5S_DOWN) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::down);
-      delay(200);
     }
     if (digitalRead(WIO_5S_UP) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::up);
-      delay(200);
     }
     if (digitalRead(WIO_5S_RIGHT) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::right);
-      delay(100);
     }
     if (digitalRead(WIO_5S_LEFT) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::left);
-      delay(100);
     }
   }
 }
@@ -87,25 +104,24 @@ void Hal::check_button()
 bool Hal::check_button_mode(Mode& mode)
 {
   Mode new_mode = mode;
-  if(digitalRead(WIO_KEY_A) == LOW)
+  if (digitalRead(WIO_KEY_A) == LOW)
   {
     new_mode = Mode::ws_color_tester;
-    delay(100);
   }
-  else if(digitalRead(WIO_KEY_B) == LOW)
+  else if (digitalRead(WIO_KEY_B) == LOW)
   {
     new_mode = Mode::pwm_generator;
-    delay(100);
   }
   else
   {
     return false;
   }
 
-  if(new_mode == mode)
+  if (new_mode == mode)
   {
     return false;
   }
+  delay(100);
   mode = new_mode;
   return true;
 }

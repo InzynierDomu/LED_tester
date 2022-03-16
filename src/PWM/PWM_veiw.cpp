@@ -13,12 +13,14 @@ void PWM_view::print_screen()
 
   m_hal.print_text("PWM duty", 30, 70);
   print_pwm_duty();
+  m_hal.draw_gradient_circle(240, 120, 40, m_model.duty);
 }
 
 void PWM_view::update_duty()
 {
   m_hal.clear_part_screen(50, 120, 50, 20);
   print_pwm_duty();
+  m_hal.draw_gradient_circle(240, 120, 40, m_model.duty);
 }
 
 void PWM_view::print_pwm_duty()

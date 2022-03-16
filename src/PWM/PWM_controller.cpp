@@ -18,13 +18,14 @@ void PWM_controller::active()
   m_view->print_screen();
   m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);
 }
+
 void PWM_controller::keyboar_reaction(Cursor_move move)
 {
-  if (move == Cursor_move::up)
+  if (move == Cursor_move::up && m_model.duty < 255)
   {
     m_model.duty++;
   }
-  else if (move == Cursor_move::down)
+  else if (move == Cursor_move::down && m_model.duty > 0)
   {
     m_model.duty--;
   }

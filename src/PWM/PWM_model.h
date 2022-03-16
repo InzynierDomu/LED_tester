@@ -8,7 +8,7 @@ struct PWM_model
   : duty(0)
   {}
 
-  u_int16_t duty;
+  uint16_t duty;
 };
 
 } // namespace PWM
