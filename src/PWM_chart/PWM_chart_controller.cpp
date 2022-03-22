@@ -12,6 +12,13 @@ void PWM_chart_controller::active()
 {
   m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);
 }
-// void PWM_chart_controller::keyboard_reaction(Cursor_move move) {}
+
+void PWM_chart_controller::keyboar_reaction(Cursor_move move)
+{
+  if (move == Cursor_move::up)
+  {}
+  else if (move == Cursor_move::down)
+  {}
+}
 
 } // namespace PWM_chart

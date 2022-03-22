@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Hal.h"
+#include "IHal.h"
 #include "PWM_chart_model.h"
 
 namespace PWM_chart

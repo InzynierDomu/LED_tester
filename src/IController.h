@@ -1,8 +1,6 @@
 #pragma once
 
-#ifndef UNIT_TEST
-#include "Hal.h"
-#endif
+#include "IHal.h"
 
 class IController
 {

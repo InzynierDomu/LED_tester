@@ -1,16 +1,15 @@
 #pragma once
 
-#ifndef UNIT_TEST
-#include "Hal.h"
-#endif
 #include "Color_tester_model.h"
+#include "IColor_tester_view.h"
+#include "IHal.h"
 
 #include <stdint.h>
 
 namespace Color_tester
 {
 
-class Color_tester_view
+class Color_tester_view : public IColor_tester_view
 {
   public:
   Color_tester_view(IHal& hal, Color_tester_model& model);

@@ -3,7 +3,7 @@
 namespace Color_tester
 {
 
-Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, Color_tester_view* view)
+Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, IColor_tester_view* view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
@@ -51,12 +51,12 @@ void Color_tester_controller::keyboar_reaction(Cursor_move move)
   if (move == Cursor_move::up || move == Cursor_move::down)
   {
     move_cursor(move);
-    delay(200);
+    // delay(200);
   }
   else if (move == Cursor_move::left || move == Cursor_move::right)
   {
     change_color(move);
-    delay(70);
+    // delay(70);
   }
 }
 
@@ -111,6 +111,11 @@ void Color_tester_controller::move_cursor(Cursor_move move)
   }
 
   m_view->update_cursor();
+}
+
+uint8_t Color_tester_controller::map(uint8_t x, uint8_t in_min, uint8_t in_max, uint8_t out_min, uint8_t out_max)
+{
+  return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
 } // namespace Color_tester

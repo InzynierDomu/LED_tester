@@ -15,7 +15,11 @@ class Hal_mock : public IHal
   MOCK_METHOD4(draw_frame, void(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height));
   MOCK_METHOD5(draw_rect, void(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height,
                                const uint16_t color));
+  MOCK_METHOD4(draw_gradient_circle,
+               void(const uint16_t position_x, const uint16_t position_y, const uint16_t radius, const uint16_t value));
   MOCK_METHOD1(set_color_rgb, void(const uint32_t color));
+  MOCK_METHOD1(set_PWM_output, void(const uint16_t duty));
   MOCK_METHOD0(check_button, void());
-  MOCK_METHOD2(set_keyboard_callback, void(callback_cursor_move callback, Controller* controller));
+  MOCK_METHOD1(check_button_mode, bool(Mode& mode));
+  MOCK_METHOD2(set_keyboard_callback, void(callback_cursor_move callback, IController* controller));
 };
