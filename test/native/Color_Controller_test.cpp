@@ -11,7 +11,9 @@ Color_Controller_test::Color_Controller_test()
 
 TEST_F(Color_Controller_test, dummy)
 {
-  // uut.active();
+  EXPECT_CALL(view_mock, print_screen());
+  EXPECT_CALL(hal_mock, set_keyboard_callback(_,_));
+  uut.active();
   ASSERT_EQ(0, 0);
 }
 
