@@ -2,7 +2,7 @@
 
 #include "../test/native/mocks/Hal_mock.h"
 #include "../test/native/mocks/Color_view_mock.h"
-#include "Color_tester/Color_tester_controller.h"
+#include "Color_tester/Color_tester_controller.cpp"
 #include "Color_tester/Color_tester_model.h"
 
 #include "gtest/gtest.h"
