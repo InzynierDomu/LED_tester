@@ -7,6 +7,7 @@
  */
 
 #include "Color_tester/Color_tester_controller.h"
+#include "Color_tester/Color_tester_view.h"
 #include "Hal.h"
 #include "IController.h"
 #include "PWM/PWM_controller.h"

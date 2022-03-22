@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include "Color_tester_view.h"
 
 namespace Color_tester
@@ -46,10 +47,10 @@ void Color_tester_view::update_color()
 {
   m_hal.draw_rect(200, 80, 80, 80, m_model.color.color_short);
   m_hal.clear_part_screen(179, 170, 130, 22);
-  String color_description = String(m_model.color.color_long, HEX);
-  color_description.toUpperCase();
-  color_description = "0x" + color_description;
-  m_hal.print_text(color_description.c_str(), 179, 170);
+  char* color_val;
+  // color_description = "0x" + color_description;
+  itoa(m_model.color.color_long, color_val, 16);
+  m_hal.print_text(color_val, 179, 170);
 }
 
 void Color_tester_view::update_cursor()
