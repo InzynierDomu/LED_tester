@@ -34,9 +34,9 @@ void Hal::clear_part_screen(const uint16_t position_x, const uint16_t position_y
 {
   m_screen.fillRect(position_x, position_y, width, height, TFT_WHITE);
 }
-void Hal::print_text(const char* text, const uint16_t position_x, const uint16_t position_y)
+void Hal::print_text(const std::string text, const uint16_t position_x, const uint16_t position_y)
 {
-  m_screen.drawString(text, position_x, position_y);
+  m_screen.drawString(text.c_str(), position_x, position_y);
 }
 void Hal::draw_cursor(const uint16_t position_x, const uint16_t position_y)
 {
@@ -85,18 +85,22 @@ void Hal::check_button()
     if (digitalRead(WIO_5S_DOWN) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::down);
+      delay(100);
     }
-    if (digitalRead(WIO_5S_UP) == LOW)
+    else if (digitalRead(WIO_5S_UP) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::up);
+      delay(100);
     }
-    if (digitalRead(WIO_5S_RIGHT) == LOW)
+    else if (digitalRead(WIO_5S_RIGHT) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::right);
+      delay(100);
     }
-    if (digitalRead(WIO_5S_LEFT) == LOW)
+    else if (digitalRead(WIO_5S_LEFT) == LOW)
     {
       (m_controller->*m_callback)(Cursor_move::left);
+      delay(100);
     }
   }
 }
