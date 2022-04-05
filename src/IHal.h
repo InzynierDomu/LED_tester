@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include <string>
 
 ///< possible joystick cursor moves
 enum class Cursor_move
@@ -30,7 +31,7 @@ class IHal
   virtual void init() = 0;
   virtual void clear_screen() = 0;
   virtual void clear_part_screen(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) = 0;
-  virtual void print_text(const char* text, const uint16_t position_x, const uint16_t position_y) = 0;
+  virtual void print_text(const std::string text, const uint16_t position_x, const uint16_t position_y) = 0;
   virtual void draw_cursor(const uint16_t position_x, const uint16_t position_y) = 0;
   virtual void draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) = 0;
   virtual void draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height,
