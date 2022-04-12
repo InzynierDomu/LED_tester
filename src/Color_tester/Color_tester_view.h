@@ -14,9 +14,9 @@ class Color_tester_view : public IColor_tester_view
   public:
   Color_tester_view(IHal& hal, Color_tester_model& model);
 
-  void print_screen();
-  void update_color_saturation();
-  void update_cursor();
+  void print_screen() override;
+  void update_color_saturation() override;
+  void update_cursor() override;
 
   private:
   void update_color();

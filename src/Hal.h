@@ -3,6 +3,7 @@
 #include "Adafruit_NeoPixel.h"
 #include "IHal.h"
 #include "TFT_eSPI.h"
+#include "Config.h"
 
 class Hal : public IHal
 {
@@ -26,10 +27,6 @@ class Hal : public IHal
   void set_keyboard_callback(callback_cursor_move callback, IController* controller) override;
 
   private:
-  // TODO: hardware config?
-  const uint8_t m_led_ws_pin = BCM27; ///< pin for WS2812 LED
-  const uint8_t m_led_ws_count = 1; ///< WS2812 LED count
-  const u_int8_t m_led_pin = BCM11;
   TFT_eSPI m_screen; ///< TFT screen 320x240
   Adafruit_NeoPixel m_ws_leds; ///< WS2812 LED
   callback_cursor_move m_callback;

@@ -1,20 +1,19 @@
 #pragma once
 
-#ifndef UNIT_TEST
-#include "Hal.h"
-#endif
+#include "IHal.h"
+#include "IPWM_view.h"
 #include "PWM_model.h"
 
 namespace PWM
 {
 
-class PWM_view
+class PWM_view : public IPWM_view
 {
   public:
   PWM_view(IHal& hal, PWM_model& model);
 
-  void print_screen();
-  void update_duty();
+  void print_screen() override;
+  void update_duty() override;
 
   private:
   void print_pwm_duty();

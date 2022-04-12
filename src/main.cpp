@@ -8,9 +8,12 @@
 
 #include "Color_tester/Color_tester_controller.h"
 #include "Color_tester/Color_tester_view.h"
+#include "Color_tester/Color_tester_model.h"
 #include "Hal.h"
 #include "IController.h"
 #include "PWM/PWM_controller.h"
+#include "PWM/PWM_view.h"
+#include "PWM/PWM_model.h"
 
 #include <Arduino.h>
 

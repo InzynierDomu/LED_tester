@@ -1,8 +1,8 @@
 #pragma once
 
 #include "IController.h"
+#include "IPWM_view.h"
 #include "PWM_model.h"
-#include "PWM_view.h"
 
 namespace PWM
 {
@@ -10,7 +10,7 @@ namespace PWM
 class PWM_controller : public IController
 {
   public:
-  PWM_controller(IHal& hal, PWM_model& model, PWM_view* view);
+  PWM_controller(IHal& hal, PWM_model& model, IPWM_view* view);
   ~PWM_controller();
 
   void active() override;
@@ -19,7 +19,7 @@ class PWM_controller : public IController
   private:
   IHal& m_hal;
   PWM_model& m_model;
-  PWM_view* m_view;
+  IPWM_view* m_view;
 };
 
 } // namespace PWM

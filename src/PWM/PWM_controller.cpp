@@ -2,7 +2,7 @@
 
 namespace PWM
 {
-PWM_controller::PWM_controller(IHal& hal, PWM_model& model, PWM_view* view)
+PWM_controller::PWM_controller(IHal& hal, PWM_model& model, IPWM_view* view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
@@ -30,6 +30,7 @@ void PWM_controller::keyboar_reaction(Cursor_move move)
     m_model.duty--;
   }
 
+  m_hal.set_PWM_output(m_model.duty);
   m_view->update_duty();
 }
 

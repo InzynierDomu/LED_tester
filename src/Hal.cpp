@@ -3,7 +3,7 @@
 #include "Free_Fonts.h"
 
 Hal::Hal()
-: m_ws_leds{m_led_ws_count, m_led_ws_pin, NEO_GRB + NEO_KHZ800}
+: m_ws_leds{Config::led_ws_count, Config::led_ws_pin, NEO_GRB + NEO_KHZ800}
 , m_controller(nullptr)
 , m_callback(nullptr)
 {}
@@ -75,7 +75,7 @@ void Hal::set_color_rgb(const uint32_t color)
 
 void Hal::set_PWM_output(const uint16_t duty)
 {
-  analogWrite(m_led_pin, duty);
+  analogWrite(Config::led_pin, duty);
 }
 
 void Hal::check_button()

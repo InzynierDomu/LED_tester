@@ -1,5 +1,7 @@
 #include "PWM_view.h"
 
+#include <string>
+
 namespace PWM
 {
 PWM_view::PWM_view(IHal& hal, PWM_model& model)
@@ -25,8 +27,7 @@ void PWM_view::update_duty()
 
 void PWM_view::print_pwm_duty()
 {
-  char duty_val[3];
-  itoa(m_model.duty, duty_val, 10);
+  std::string duty_val = std::to_string(m_model.duty);
   m_hal.print_text(duty_val, 50, 120);
 }
 
