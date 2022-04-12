@@ -13,9 +13,9 @@ using namespace ::testing;
 
 struct Color_tester_view_test : public ::testing::Test
 {
+  protected:
   Color_tester_view_test();
 
-  protected:
   Hal_mock hal_mock;
   Color_tester_model model;
   Color_tester_view uut;

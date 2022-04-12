@@ -6,6 +6,7 @@ Hal::Hal()
 : m_ws_leds{Config::led_ws_count, Config::led_ws_pin, NEO_GRB + NEO_KHZ800}
 , m_controller(nullptr)
 , m_callback(nullptr)
+, m_keyboard_blocking_time_ms(100)
 {}
 
 void Hal::init()
@@ -34,7 +35,7 @@ void Hal::clear_part_screen(const uint16_t position_x, const uint16_t position_y
 {
   m_screen.fillRect(position_x, position_y, width, height, TFT_WHITE);
 }
-void Hal::print_text(const std::string text, const uint16_t position_x, const uint16_t position_y)
+void Hal::print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y)
 {
   m_screen.drawString(text.c_str(), position_x, position_y);
 }
@@ -80,27 +81,32 @@ void Hal::set_PWM_output(const uint16_t duty)
 
 void Hal::check_button()
 {
-  if (m_controller != nullptr && m_callback != nullptr)
+  static unsigned long last_loop_time;
+  unsigned long loop_time = millis();
+  if (loop_time - last_loop_time > m_keyboard_blocking_time_ms)
   {
-    if (digitalRead(WIO_5S_DOWN) == LOW)
+    if (m_controller != nullptr && m_callback != nullptr)
     {
-      (m_controller->*m_callback)(Cursor_move::down);
-      delay(100);
-    }
-    else if (digitalRead(WIO_5S_UP) == LOW)
-    {
-      (m_controller->*m_callback)(Cursor_move::up);
-      delay(100);
-    }
-    else if (digitalRead(WIO_5S_RIGHT) == LOW)
-    {
-      (m_controller->*m_callback)(Cursor_move::right);
-      delay(100);
-    }
-    else if (digitalRead(WIO_5S_LEFT) == LOW)
-    {
-      (m_controller->*m_callback)(Cursor_move::left);
-      delay(100);
+      if (digitalRead(WIO_5S_DOWN) == LOW)
+      {
+        (m_controller->*m_callback)(Cursor_move::down);
+        last_loop_time = loop_time;
+      }
+      else if (digitalRead(WIO_5S_UP) == LOW)
+      {
+        (m_controller->*m_callback)(Cursor_move::up);
+        last_loop_time = loop_time;
+      }
+      else if (digitalRead(WIO_5S_RIGHT) == LOW)
+      {
+        (m_controller->*m_callback)(Cursor_move::right);
+        last_loop_time = loop_time;
+      }
+      else if (digitalRead(WIO_5S_LEFT) == LOW)
+      {
+        (m_controller->*m_callback)(Cursor_move::left);
+        last_loop_time = loop_time;
+      }
     }
   }
 }
@@ -125,7 +131,6 @@ bool Hal::check_button_mode(Mode& mode)
   {
     return false;
   }
-  delay(100);
   mode = new_mode;
   return true;
 }

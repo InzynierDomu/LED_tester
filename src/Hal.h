@@ -14,7 +14,7 @@ class Hal : public IHal
   void init() override;
   void clear_screen() override;
   void clear_part_screen(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) override;
-  void print_text(const std::string text, const uint16_t position_x, const uint16_t position_y) override;
+  void print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y) override;
   void draw_cursor(const uint16_t position_x, const uint16_t position_y) override;
   void draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) override;
   void draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height,
@@ -31,4 +31,6 @@ class Hal : public IHal
   Adafruit_NeoPixel m_ws_leds; ///< WS2812 LED
   callback_cursor_move m_callback;
   IController* m_controller;
+
+  const uint32_t m_keyboard_blocking_time_ms;
 };

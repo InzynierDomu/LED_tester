@@ -12,11 +12,11 @@ namespace PWM
 
 using namespace ::testing;
 
-struct PWM_Controller_test : public ::testing::Test
+struct PWM_controller_test : public ::testing::Test
 {
-  PWM_Controller_test();
-
   protected:
+  PWM_controller_test();
+
   Hal_mock hal_mock;
   PWM_model model;
   PWM_view_mock view_mock;
