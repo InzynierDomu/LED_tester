@@ -25,8 +25,8 @@ TEST_F(PWM_controller_test, set_pwm_up)
 
 TEST_F(PWM_controller_test, set_pwm_down)
 {
-  EXPECT_CALL(view_mock, update_duty());
   EXPECT_CALL(hal_mock, set_PWM_output(0));
+  EXPECT_CALL(view_mock, update_duty());
   uut.keyboar_reaction(Cursor_move::down);
 }
 
