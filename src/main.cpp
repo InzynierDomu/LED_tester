@@ -14,12 +14,16 @@
 #include "PWM/PWM_controller.h"
 #include "PWM/PWM_view.h"
 #include "PWM/PWM_model.h"
+#include "PWM_chart/PWM_chart_controller.h"
+#include "PWM_chart/PWM_chart_view.h"
+#include "PWM_chart/PWM_chart_model.h"
 
 #include <Arduino.h>
 
 Hal m_hal;
 Color_tester::Color_tester_model m_color_tester_model;
 PWM::PWM_model m_PWM_model;
+PWM_chart::PWM_chart_model m_PWM_chart_model;
 IController* m_controller;
 
 Mode m_mode = Mode::ws_color_tester; ///< mode which device current running
@@ -43,6 +47,12 @@ void change_mode(Mode mode)
     {
       PWM::PWM_view* pwm_view = new PWM::PWM_view(m_hal, m_PWM_model);
       m_controller = new PWM::PWM_controller(m_hal, m_PWM_model, pwm_view);
+      break;
+    }
+    case Mode::characteristic_tester:
+    {
+      PWM_chart::PWM_chart_view* pwm_chart_view = new PWM_chart::PWM_chart_view(m_hal, m_PWM_chart_model);
+      m_controller = new PWM_chart::PWM_chart_controller(m_hal, m_PWM_chart_model, pwm_chart_view);
       break;
     }
     default:

@@ -116,11 +116,15 @@ bool Hal::check_button_mode(Mode& mode)
   Mode new_mode = mode;
   if (digitalRead(WIO_KEY_A) == LOW)
   {
-    new_mode = Mode::ws_color_tester;
+    new_mode = Mode::characteristic_tester;
   }
   else if (digitalRead(WIO_KEY_B) == LOW)
   {
     new_mode = Mode::pwm_generator;
+  }
+  else if (digitalRead(WIO_KEY_C) == LOW)
+  {
+    new_mode = Mode::ws_color_tester;
   }
   else
   {

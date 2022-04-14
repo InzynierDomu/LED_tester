@@ -5,8 +5,7 @@
 namespace Color_tester
 {
 
-///< color name for cursor positions
-enum Cursor_position_name
+enum Cursor_position_name ///< color name for cursor positions
 {
   r = 0,
   g,

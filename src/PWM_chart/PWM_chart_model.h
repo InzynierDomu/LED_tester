@@ -1,15 +1,22 @@
 #pragma once
 // #include "math.h"
-#include "string"
-
+#include <stdint.h>
+#include <string>
 
 namespace PWM_chart
 {
 
-class Math_function
+using math_fun = uint16_t (*)(uint16_t);
+
+struct Math_function
 {
+  Math_function(std::string _name, math_fun _fun)
+  : name(_name)
+  , fun(_fun)
+  {}
+
   std::string name;
-  uint16_t (*fun)(uint16_t);
+  math_fun fun;
 };
 
 namespace Math_functions
@@ -26,7 +33,7 @@ struct PWM_chart_model
 {
   PWM_chart_model() {}
 
-  // Math_function math_functions[2];
+  Math_function math_functions[1]{{"linear", Math_functions::linear}};
 };
 
 } // namespace PWM_chart

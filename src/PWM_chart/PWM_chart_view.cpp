@@ -8,6 +8,9 @@ PWM_chart_view::PWM_chart_view(IHal& hal, PWM_chart_model& model)
 , m_model(model)
 {}
 
-void PWM_chart_view::print_screen() {}
+void PWM_chart_view::print_screen()
+{
+  m_hal.clear_screen();
+}
 
 } // namespace PWM_chart

@@ -1,9 +1,9 @@
 #pragma once
 
 #include "IController.h"
+#include "IHal.h"
+#include "IPWM_chart_veiw.h"
 #include "PWM_chart_model.h"
-#include "PWM_chart_view.h"
-
 
 namespace PWM_chart
 {
@@ -11,7 +11,8 @@ namespace PWM_chart
 class PWM_chart_controller : public IController
 {
   public:
-  PWM_chart_controller(IHal& hal, PWM_chart_model& model, PWM_chart_view& view);
+  PWM_chart_controller(IHal& hal, PWM_chart_model& model, IPWM_chart_view* view);
+  ~PWM_chart_controller();
 
   void active() override;
   void keyboar_reaction(Cursor_move move) override;
@@ -19,7 +20,7 @@ class PWM_chart_controller : public IController
   private:
   IHal& m_hal;
   PWM_chart_model& m_model;
-  PWM_chart_view& m_veiw;
+  IPWM_chart_view* m_view;
 };
 
 } // namespace PWM_chart
