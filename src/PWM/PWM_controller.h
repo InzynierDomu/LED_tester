@@ -17,6 +17,8 @@ class PWM_controller : public IController
   void keyboar_reaction(Cursor_move move) override;
 
   private:
+  PWM_controller(const PWM_controller&);
+
   IHal& m_hal;
   PWM_model& m_model;
   IPWM_view* m_view;

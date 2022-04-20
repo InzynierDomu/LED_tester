@@ -17,6 +17,9 @@ class Hal_mock : public IHal
                                const uint16_t color));
   MOCK_METHOD4(draw_gradient_circle,
                void(const uint16_t position_x, const uint16_t position_y, const uint16_t radius, const uint16_t value));
+  MOCK_METHOD3(draw_line_vertical, void(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght));
+  MOCK_METHOD3(draw_line_horizontal, void(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght));
+  MOCK_METHOD2(draw_point, void(const uint16_t position_x, const uint16_t position_y));
   MOCK_METHOD1(set_color_rgb, void(const uint32_t color));
   MOCK_METHOD1(set_PWM_output, void(const uint16_t duty));
   MOCK_METHOD0(check_button, void());

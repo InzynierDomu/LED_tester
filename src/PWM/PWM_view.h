@@ -16,6 +16,7 @@ class PWM_view : public IPWM_view
   void update_duty() override;
 
   private:
+  PWM_view(const PWM_view&);
   void print_pwm_duty();
 
   IHal& m_hal;

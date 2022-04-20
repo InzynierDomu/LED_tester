@@ -68,6 +68,23 @@ void Hal::draw_gradient_circle(const uint16_t position_x, const uint16_t positio
   }
 }
 
+void Hal::draw_line_vertical(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) 
+{
+  m_screen.drawFastVLine(position_x, position_y, lenght, TFT_BLACK);
+  //todo: draw arrow
+}
+
+void Hal::draw_line_horizontal(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) 
+{
+  m_screen.drawFastHLine(position_x, position_y, lenght, TFT_BLACK);
+  //todo: draw arrow
+}
+
+void Hal::draw_point(const uint16_t position_x, const uint16_t position_y)
+{
+  m_screen.drawPixel(position_x, position_y, TFT_BLACK);
+}
+
 void Hal::set_color_rgb(const uint32_t color)
 {
   m_ws_leds.setPixelColor(0, color);

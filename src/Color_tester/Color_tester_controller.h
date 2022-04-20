@@ -15,11 +15,13 @@ class Color_tester_controller : public IController
   public:
   Color_tester_controller(IHal& hal, Color_tester_model& model, IColor_tester_view* view);
   ~Color_tester_controller();
+  // Color_tester_controller& operator=(const Color_tester_controller& other);
 
   void active() override;
   void keyboar_reaction(Cursor_move move) override;
 
   private:
+  Color_tester_controller(const Color_tester_controller&);
   uint16_t color16(uint8_t* colors_saturation);
   uint32_t color32(uint8_t* colors_saturation);
   void change_color(Cursor_move move);

@@ -19,6 +19,7 @@ class Color_tester_view : public IColor_tester_view
   void update_cursor() override;
 
   private:
+  Color_tester_view(const Color_tester_view&);
   void update_color();
   void print_color(uint8_t position);
 

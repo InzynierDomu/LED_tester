@@ -37,6 +37,9 @@ class IHal
   virtual void draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height,
                          const uint16_t color) = 0;
   virtual void draw_gradient_circle(const uint16_t position_x, const uint16_t position_y, const uint16_t radius, const uint16_t value) = 0;
+  virtual void draw_line_vertical(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) = 0;
+  virtual void draw_line_horizontal(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) = 0;
+  virtual void draw_point(const uint16_t position_x, const uint16_t position_y) = 0;
   virtual void set_color_rgb(const uint32_t color) = 0;
   virtual void set_PWM_output(const uint16_t duty) = 0;
   virtual void check_button() = 0;

@@ -1,4 +1,5 @@
 #include "PWM_chart_controller.h"
+#include "Config.h"
 
 namespace PWM_chart
 {

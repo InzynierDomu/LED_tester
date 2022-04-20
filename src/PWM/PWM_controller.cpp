@@ -1,4 +1,5 @@
 #include "PWM_controller.h"
+#include "Config.h"
 
 namespace PWM
 {
@@ -21,7 +22,7 @@ void PWM_controller::active()
 
 void PWM_controller::keyboar_reaction(Cursor_move move)
 {
-  if (move == Cursor_move::up && m_model.duty < 255)
+  if (move == Cursor_move::up && m_model.duty < Config::PWM_max) 
   {
     m_model.duty++;
   }
