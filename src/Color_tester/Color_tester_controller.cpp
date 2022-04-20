@@ -85,6 +85,8 @@ void Color_tester_controller::change_color(Cursor_move move)
  */
 void Color_tester_controller::move_cursor(Cursor_move move)
 {
+  m_view->clear_cursor();
+
   if (move == Cursor_move::up)
   {
     if (m_model.position == Cursor_position_name::r)

@@ -17,6 +17,7 @@ class Color_tester_view : public IColor_tester_view
   void print_screen() override;
   void update_color_saturation() override;
   void update_cursor() override;
+  void clear_cursor() override;
 
   private:
   Color_tester_view(const Color_tester_view&);

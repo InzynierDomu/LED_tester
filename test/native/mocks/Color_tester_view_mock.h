@@ -13,6 +13,7 @@ class Color_tester_view_mock : public IColor_tester_view
   MOCK_METHOD0(print_screen, void());
   MOCK_METHOD0(update_color_saturation, void());
   MOCK_METHOD0(update_cursor, void());
+  MOCK_METHOD0(clear_cursor, void());
 };
 
 } // namespace Color_tester

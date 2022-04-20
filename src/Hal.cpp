@@ -31,22 +31,32 @@ void Hal::clear_screen()
 {
   m_screen.fillScreen(TFT_WHITE);
 }
+
 void Hal::clear_part_screen(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height)
 {
   m_screen.fillRect(position_x, position_y, width, height, TFT_WHITE);
 }
+
+void Hal::clear_cursor(const uint16_t position_x, const uint16_t position_y)
+{
+  m_screen.drawRect(position_x, position_y, 72, 22, TFT_WHITE);
+}
+
 void Hal::print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y)
 {
   m_screen.drawString(text.c_str(), position_x, position_y);
 }
+
 void Hal::draw_cursor(const uint16_t position_x, const uint16_t position_y)
 {
-  m_screen.fillCircle(position_x, position_y, 6, TFT_RED);
+  m_screen.drawRect(position_x, position_y, 72, 22, TFT_RED);
 }
+
 void Hal::draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height)
 {
   m_screen.drawRect(position_x, position_y, width, height, TFT_BLACK);
 }
+
 void Hal::draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height, const uint16_t color)
 {
   m_screen.fillRect(position_x, position_y, width, height, color);
@@ -68,16 +78,16 @@ void Hal::draw_gradient_circle(const uint16_t position_x, const uint16_t positio
   }
 }
 
-void Hal::draw_line_vertical(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) 
+void Hal::draw_line_vertical(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
 {
   m_screen.drawFastVLine(position_x, position_y, lenght, TFT_BLACK);
-  //todo: draw arrow
+  // todo: draw arrow
 }
 
-void Hal::draw_line_horizontal(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) 
+void Hal::draw_line_horizontal(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
 {
   m_screen.drawFastHLine(position_x, position_y, lenght, TFT_BLACK);
-  //todo: draw arrow
+  // todo: draw arrow
 }
 
 void Hal::draw_point(const uint16_t position_x, const uint16_t position_y)

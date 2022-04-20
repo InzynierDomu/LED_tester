@@ -14,6 +14,7 @@ class Hal : public IHal
   void init() override;
   void clear_screen() override;
   void clear_part_screen(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) override;
+  void clear_cursor(const uint16_t position_x, const uint16_t position_y) override;
   void print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y) override;
   void draw_cursor(const uint16_t position_x, const uint16_t position_y) override;
   void draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) override;

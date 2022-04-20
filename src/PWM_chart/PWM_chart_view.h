@@ -11,7 +11,7 @@ class PWM_chart_view : public IPWM_chart_view
 {
   public:
   PWM_chart_view(IHal& hal, PWM_chart_model& model);
-  void print_screen();
+  void print_screen() override;
 
   private:
   PWM_chart_view(const PWM_chart_view&);

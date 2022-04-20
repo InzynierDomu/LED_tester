@@ -18,13 +18,15 @@ TEST_F(Color_tester_controller_test, active)
 
 TEST_F(Color_tester_controller_test, move_up_from_start)
 {
-  EXPECT_CALL(view_mock, update_cursor());
+  EXPECT_CALL(view_mock, clear_cursor());
+  EXPECT_CALL(view_mock, update_cursor());  
   uut.keyboar_reaction(Cursor_move::up);
   ASSERT_EQ(model.position, 2);
 }
 
 TEST_F(Color_tester_controller_test, move_dow_3times_from_start)
 {
+  EXPECT_CALL(view_mock, clear_cursor()).Times(3);
   EXPECT_CALL(view_mock, update_cursor()).Times(3);
   uut.keyboar_reaction(Cursor_move::down);
   ASSERT_EQ(model.position, 1);

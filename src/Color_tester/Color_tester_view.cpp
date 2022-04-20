@@ -11,19 +11,19 @@ namespace Color_tester
 Color_tester_view::Color_tester_view(IHal& hal, Color_tester_model& model)
 : m_hal(hal)
 , m_model(model)
-, m_cursor_position_x{76, 126, 176}
-, m_shift_from_cursor(6)
+, m_cursor_position_x{70, 120, 170}
+, m_shift_from_cursor(2)
 {}
 
 void Color_tester_view::print_screen()
 {
   m_hal.clear_screen();
 
-  m_hal.draw_cursor(36, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)]);
+  m_hal.draw_cursor(58, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)] - m_shift_from_cursor);
 
-  m_hal.print_text("R", 50, 70);
-  m_hal.print_text("G", 50, 120);
-  m_hal.print_text("B", 50, 170);
+  m_hal.print_text("R", 60, 70);
+  m_hal.print_text("G", 60, 120);
+  m_hal.print_text("B", 60, 170);
 
   m_hal.draw_frame(199, 79, 82, 82);
 
@@ -39,7 +39,7 @@ void Color_tester_view::print_screen()
  */
 void Color_tester_view::update_color_saturation()
 {
-  m_hal.clear_part_screen(90, m_cursor_position_x[m_model.position] - m_shift_from_cursor, 60, 20);
+  m_hal.clear_part_screen(85, m_cursor_position_x[m_model.position], 42, 19);
   print_color(m_model.position);
   update_color();
 }
@@ -60,14 +60,18 @@ void Color_tester_view::update_color()
 
 void Color_tester_view::update_cursor()
 {
-  m_hal.clear_part_screen(30, 70, 13, 240);
-  m_hal.draw_cursor(36, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)]);
+  m_hal.draw_cursor(58, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)] - m_shift_from_cursor);
+}
+
+void Color_tester_view::clear_cursor()
+{
+  m_hal.clear_cursor(58, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)] - m_shift_from_cursor);
 }
 
 void Color_tester_view::print_color(uint8_t position)
 {
   std::string color_val = std::to_string(m_model.color.color_saturation[position]);
-  m_hal.print_text(color_val, 90, m_cursor_position_x[position] - m_shift_from_cursor);
+  m_hal.print_text(color_val, 85, m_cursor_position_x[position]);
 }
 
 } // namespace Color_tester
