@@ -9,7 +9,8 @@ enum class Cursor_move
   up,
   down,
   left,
-  right
+  right,
+  center
 };
 
 ///< modes which device possible running
@@ -32,8 +33,10 @@ class IHal
   virtual void clear_screen() = 0;
   virtual void clear_part_screen(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) = 0;
   virtual void clear_cursor(const uint16_t position_x, const uint16_t position_y) = 0;
+  virtual void clear_chart_cursor(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) = 0;
   virtual void print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y) = 0;
   virtual void draw_cursor(const uint16_t position_x, const uint16_t position_y) = 0;
+  virtual void draw_chart_cursor(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) = 0;
   virtual void draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height) = 0;
   virtual void draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height,
                          const uint16_t color) = 0;
@@ -46,4 +49,5 @@ class IHal
   virtual void check_button() = 0;
   virtual bool check_button_mode(Mode& mode) = 0;
   virtual void set_keyboard_callback(callback_cursor_move callback, IController* controller) = 0;
+  virtual void wait() = 0;
 };

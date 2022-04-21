@@ -12,6 +12,10 @@ class PWM_chart_view : public IPWM_chart_view
   public:
   PWM_chart_view(IHal& hal, PWM_chart_model& model);
   void print_screen() override;
+  void update_cursor() override;
+  void clear_cursor() override;
+  void clear_pwm_cursor() override;
+  void update_pwm_cursor() override;
 
   private:
   PWM_chart_view(const PWM_chart_view&);

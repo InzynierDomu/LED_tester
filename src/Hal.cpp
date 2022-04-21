@@ -15,6 +15,7 @@ void Hal::init()
   pinMode(WIO_5S_DOWN, INPUT);
   pinMode(WIO_5S_LEFT, INPUT);
   pinMode(WIO_5S_RIGHT, INPUT);
+  pinMode(WIO_5S_PRESS, INPUT);
   pinMode(WIO_KEY_A, INPUT);
   pinMode(WIO_KEY_B, INPUT);
   pinMode(WIO_KEY_C, INPUT);
@@ -42,6 +43,11 @@ void Hal::clear_cursor(const uint16_t position_x, const uint16_t position_y)
   m_screen.drawRect(position_x, position_y, 72, 22, TFT_WHITE);
 }
 
+void Hal::clear_chart_cursor(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
+{
+  m_screen.drawFastVLine(position_x, position_y, lenght, TFT_WHITE);
+}
+
 void Hal::print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y)
 {
   m_screen.drawString(text.c_str(), position_x, position_y);
@@ -50,6 +56,11 @@ void Hal::print_text(const std::string& text, const uint16_t position_x, const u
 void Hal::draw_cursor(const uint16_t position_x, const uint16_t position_y)
 {
   m_screen.drawRect(position_x, position_y, 72, 22, TFT_RED);
+}
+
+void Hal::draw_chart_cursor(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
+{
+  m_screen.drawFastVLine(position_x, position_y, lenght, TFT_RED);
 }
 
 void Hal::draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height)
@@ -82,6 +93,7 @@ void Hal::draw_line_vertical(const uint16_t position_x, const uint16_t position_
 {
   m_screen.drawFastVLine(position_x, position_y, lenght, TFT_BLACK);
   // todo: draw arrow
+  // todo: add vertical and horizontal to draw chart axis
 }
 
 void Hal::draw_line_horizontal(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
@@ -134,6 +146,11 @@ void Hal::check_button()
         (m_controller->*m_callback)(Cursor_move::left);
         last_loop_time = loop_time;
       }
+      else if (digitalRead(WIO_5S_PRESS) == LOW)
+      {
+        (m_controller->*m_callback)(Cursor_move::center);
+        last_loop_time = loop_time;
+      }
     }
   }
 }
@@ -170,4 +187,11 @@ void Hal::set_keyboard_callback(callback_cursor_move callback, IController* cont
 {
   m_callback = callback;
   m_controller = controller;
+}
+
+void Hal::wait()
+{
+  unsigned long start_time = millis();
+  do
+  { } while ((start_time + 100) > millis()); 
 }
