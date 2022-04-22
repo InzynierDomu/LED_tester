@@ -17,6 +17,7 @@ void PWM_chart_view::print_screen()
   print_math_fun_names();
   print_chart();
   print_math_fun();
+  update_pwm_cursor();
 }
 
 void PWM_chart_view::update_cursor()
@@ -45,8 +46,7 @@ void PWM_chart_view::update_pwm_cursor()
 
 void PWM_chart_view::print_chart()
 {
-  m_hal.draw_line_horizontal(100, 220, 200);
-  m_hal.draw_line_vertical(100, 20, 200);
+  m_hal.draw_chart_axes(100, 17, 203, "T", "D");
 }
 
 void PWM_chart_view::print_math_fun()

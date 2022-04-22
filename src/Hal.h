@@ -23,8 +23,8 @@ class Hal : public IHal
   void draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height,
                  const uint16_t color) override;
   void draw_gradient_circle(const uint16_t position_x, const uint16_t position_y, const uint16_t radius, const uint16_t value) override;
-  void draw_line_vertical(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) override;
-  void draw_line_horizontal(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght) override;
+  void draw_chart_axes(const uint16_t position_x, const uint16_t position_y, const uint16_t size, const std::string& x_axis_name,
+                               const std::string& y_axis_name) override;
   void draw_point(const uint16_t position_x, const uint16_t position_y) override;
   void set_color_rgb(const uint32_t color) override;
   void set_PWM_output(const uint16_t duty) override;

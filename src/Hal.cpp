@@ -23,7 +23,6 @@ void Hal::init()
   m_screen.begin();
   m_screen.setRotation(3);
 
-  m_screen.setFreeFont(&FreeSansBold12pt7b);
   m_screen.setTextColor(TFT_BLACK);
   m_ws_leds.begin();
 }
@@ -50,6 +49,7 @@ void Hal::clear_chart_cursor(const uint16_t position_x, const uint16_t position_
 
 void Hal::print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y)
 {
+  m_screen.setFreeFont(&FreeSansBold12pt7b);
   m_screen.drawString(text.c_str(), position_x, position_y);
 }
 
@@ -89,17 +89,18 @@ void Hal::draw_gradient_circle(const uint16_t position_x, const uint16_t positio
   }
 }
 
-void Hal::draw_line_vertical(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
+void Hal::draw_chart_axes(const uint16_t position_x, const uint16_t position_y, const uint16_t size, const std::string& x_axis_name,
+                          const std::string& y_axis_name)
 {
-  m_screen.drawFastVLine(position_x, position_y, lenght, TFT_BLACK);
-  // todo: draw arrow
-  // todo: add vertical and horizontal to draw chart axis
-}
-
-void Hal::draw_line_horizontal(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
-{
-  m_screen.drawFastHLine(position_x, position_y, lenght, TFT_BLACK);
-  // todo: draw arrow
+  m_screen.drawFastVLine(position_x, position_y, size, TFT_BLACK);
+  m_screen.drawFastHLine(position_x, position_y + size, size, TFT_BLACK);
+  m_screen.drawLine(position_x, position_y, position_x + 3, position_y + 3, TFT_BLACK);
+  m_screen.drawLine(position_x, position_y, position_x - 3, position_y + 3, TFT_BLACK);
+  m_screen.drawLine(position_x + size, position_y + size, position_x + size - 3, position_y + size + 3, TFT_BLACK);
+  m_screen.drawLine(position_x + size, position_y + size, position_x + size - 3, position_y + size - 3, TFT_BLACK);
+  m_screen.setFreeFont(&FreeSans9pt7b);
+  m_screen.drawString(x_axis_name.c_str(), position_x + size + 2, position_y + size + 3);
+  m_screen.drawString(y_axis_name.c_str(), position_x - 15, position_y - 12);
 }
 
 void Hal::draw_point(const uint16_t position_x, const uint16_t position_y)
@@ -193,5 +194,4 @@ void Hal::wait()
 {
   unsigned long start_time = millis();
   do
-  { } while ((start_time + 100) > millis()); 
-}
+  { } while ((start_time + 100) > millis()); }

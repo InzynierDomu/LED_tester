@@ -12,8 +12,8 @@ TEST_F(PWM_chart_view_test, print_fun_menu)
 {
   EXPECT_CALL(hal_mock, clear_screen());
   EXPECT_CALL(hal_mock, draw_cursor(_, _));
-  EXPECT_CALL(hal_mock, draw_line_horizontal(_, _, _));
-  EXPECT_CALL(hal_mock, draw_line_vertical(_, _, _));
+  EXPECT_CALL(hal_mock, draw_chart_axes(_, _, _, _, _));
+  EXPECT_CALL(hal_mock, draw_chart_cursor(_, _, _));
   EXPECT_CALL(hal_mock, draw_point(_, _)).Times(199);
   EXPECT_CALL(hal_mock, print_text("x", _, _));
   EXPECT_CALL(hal_mock, print_text("sin", _, _));
