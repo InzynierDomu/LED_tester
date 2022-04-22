@@ -18,6 +18,7 @@ void PWM_controller::active()
 {
   m_view->print_screen();
   m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);
+  m_hal.set_PWM_output(m_model.duty);
 }
 
 void PWM_controller::keyboar_reaction(Cursor_move move)

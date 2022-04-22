@@ -21,8 +21,7 @@ class PWM_chart_controller : public IController
   void move_cursor(Cursor_move move);
   void move_pwm_cursor(Cursor_move move);
   void run_pwm_fun();
-  uint8_t map(uint8_t x, uint8_t in_min, uint8_t in_max, uint8_t out_min, uint8_t out_max);
-
+  
   IHal& m_hal;
   PWM_chart_model& m_model;
   IPWM_chart_view* m_view;
