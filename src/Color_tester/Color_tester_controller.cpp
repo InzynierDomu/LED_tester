@@ -113,7 +113,8 @@ void Color_tester_controller::move_cursor(Cursor_move move)
   m_view->update_cursor();
 }
 
-uint8_t Color_tester_controller::map(uint8_t x, uint8_t in_min, uint8_t in_max, uint8_t out_min, uint8_t out_max)
+uint8_t Color_tester_controller::map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min,
+                                     const uint8_t out_max)
 {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

@@ -26,7 +26,7 @@ class Color_tester_controller : public IController
   uint32_t color32(uint8_t* colors_saturation);
   void change_color(Cursor_move move);
   void move_cursor(Cursor_move move);
-  uint8_t map(uint8_t x, uint8_t in_min, uint8_t in_max, uint8_t out_min, uint8_t out_max);
+  uint8_t map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min, const uint8_t out_max);
 
   IHal& m_hal;
   Color_tester_model& m_model;

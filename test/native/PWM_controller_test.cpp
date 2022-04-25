@@ -13,6 +13,7 @@ TEST_F(PWM_controller_test, active)
 {
   EXPECT_CALL(view_mock, print_screen());
   EXPECT_CALL(hal_mock, set_keyboard_callback(_, _));
+  EXPECT_CALL(hal_mock, set_PWM_output(_));
   uut.active();
 }
 

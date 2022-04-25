@@ -22,7 +22,7 @@ class PWM_chart_view : public IPWM_chart_view
   void print_chart();
   void print_math_fun();
   void print_math_fun_names();
-  uint8_t map(uint8_t x, uint8_t in_min, uint8_t in_max, uint8_t out_min, uint8_t out_max);
+  uint8_t map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min, const uint8_t out_max);
 
   IHal& m_hal;
   PWM_chart_model& m_model;

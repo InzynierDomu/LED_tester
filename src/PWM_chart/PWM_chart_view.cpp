@@ -1,4 +1,5 @@
 #include "PWM_chart_view.h"
+
 #include "Config.h"
 
 namespace PWM_chart
@@ -36,7 +37,7 @@ void PWM_chart_view::clear_cursor()
 
 void PWM_chart_view::clear_pwm_cursor()
 {
-  auto cursor_position = map(m_model.pwm_cursor_position, 0, Config::PWM_max, 0 , m_chart_size);
+  auto cursor_position = map(m_model.pwm_cursor_position, 0, Config::PWM_max, 0, m_chart_size);
   m_hal.clear_chart_cursor(cursor_position + 101, 20, m_chart_size);
   uint8_t y = m_model.math_functions[m_model.position].fun(cursor_position, m_chart_size);
   m_hal.draw_point(cursor_position + 101, 219 - y);
@@ -44,7 +45,7 @@ void PWM_chart_view::clear_pwm_cursor()
 
 void PWM_chart_view::update_pwm_cursor()
 {
-  auto cursor_position = map(m_model.pwm_cursor_position, 0, Config::PWM_max, 0 , m_chart_size);
+  auto cursor_position = map(m_model.pwm_cursor_position, 0, Config::PWM_max, 0, m_chart_size);
   m_hal.draw_chart_cursor(cursor_position + 101, 20, m_chart_size);
 }
 
@@ -70,7 +71,7 @@ void PWM_chart_view::print_math_fun_names()
   }
 }
 
-uint8_t PWM_chart_view::map(uint8_t x, uint8_t in_min, uint8_t in_max, uint8_t out_min, uint8_t out_max)
+uint8_t PWM_chart_view::map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min, const uint8_t out_max)
 {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
