@@ -1,4 +1,13 @@
+/**
+ * @file PWM_cahrt_model.h
+ * @brief Model with structures for characteristic PWM change in time mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
+
 #include <math.h>
 #include <stdint.h>
 #include <string>
@@ -15,8 +24,8 @@ struct Math_function
   , fun(_fun)
   {}
 
-  std::string name;
-  math_fun fun;
+  std::string name; ///< math function short name
+  math_fun fun; ///< math function calculation
 };
 
 namespace Math_functions
@@ -44,11 +53,11 @@ struct PWM_chart_model
   , duty(0)
   {}
 
-  const uint8_t math_fun_count;
-  const Math_function math_functions[2];
-  uint8_t position;
-  uint8_t pwm_cursor_position;
-  uint16_t duty;
+  const uint8_t math_fun_count; ///< math functions count
+  const Math_function math_functions[2]; ///< math funtions
+  uint8_t position; ///< current math function
+  uint8_t pwm_cursor_position; ///< x position in function
+  uint16_t duty; ///< PWM duty
 };
 
 } // namespace PWM_chart
