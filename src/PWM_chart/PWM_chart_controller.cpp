@@ -1,5 +1,5 @@
 /**
- * @file PWM_cahrt_controller.cpp
+ * @file PWM_chart_controller.cpp
  * @brief controller for change of PWM in time characteristics mode
  * @author by Szymon Markiewicz
  * @details http://www.inzynierdomu.pl/
@@ -24,7 +24,6 @@ PWM_chart_controller::PWM_chart_controller(IHal& hal, PWM_chart_model& model, IP
 , m_model(model)
 , m_view(view)
 {}
-
 
 /**
  * @brief destructor

@@ -1,14 +1,32 @@
+/**
+ * @file PWM_controller.cpp
+ * @brief Controller for manual pwm control mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #include "PWM_controller.h"
 #include "Config.h"
 
 namespace PWM
 {
+
+/**
+ * @brief constructor
+ * @param hal: hardware layer
+ * @param model: data related to manual pwm control mode
+ * @param view: UI part to manual pwm control mode
+ */  
 PWM_controller::PWM_controller(IHal& hal, PWM_model& model, IPWM_view* view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
 {}
 
+/**
+ * @brief destructor
+ */
 PWM_controller::~PWM_controller()
 {
   delete m_view;

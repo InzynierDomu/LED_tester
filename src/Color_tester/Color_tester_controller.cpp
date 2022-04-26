@@ -1,14 +1,31 @@
+/**
+ * @file Color_tester_controller.cpp
+ * @brief Controller for color picker mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #include "Color_tester_controller.h"
 
 namespace Color_tester
 {
 
+/**
+ * @brief constructor
+ * @param hal: hardware layer
+ * @param model: data related to color picker mode
+ * @param view: UI part to color picker mode
+ */
 Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, IColor_tester_view* view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
 {}
 
+/**
+ * @brief destructor
+ */
 Color_tester_controller::~Color_tester_controller()
 {
   delete m_view;
@@ -38,6 +55,10 @@ uint16_t Color_tester_controller::color16(uint8_t* colors_saturation)
   return color;
 }
 
+/**
+ * @brief convert rgb 8bits colors saturation table to 32bits
+ * @return rgb color in 32bits format
+ */
 uint32_t Color_tester_controller::color32(uint8_t* colors_saturation)
 {
   uint32_t color = colors_saturation[2];
@@ -113,6 +134,15 @@ void Color_tester_controller::move_cursor(Cursor_move move)
   m_view->update_cursor();
 }
 
+/**
+ * @brief linear maping
+ * @param x: input value
+ * @param in_min: min input value
+ * @param in_max: mac input value
+ * @param out_min: out min value
+ * @param out_max: out max value
+ * @return input value linear cast from input range to output range
+ */
 uint8_t Color_tester_controller::map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min,
                                      const uint8_t out_max)
 {

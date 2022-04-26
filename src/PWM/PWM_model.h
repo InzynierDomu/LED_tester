@@ -1,6 +1,6 @@
 /**
  * @file PWM_cahrt_model.h
- * @brief Model with structure for PWM manual mode
+ * @brief Model with structure for manual pwm control mode
  * @author by Szymon Markiewicz
  * @details http://www.inzynierdomu.pl/
  * @date 03-2022

@@ -1,5 +1,5 @@
 /**
- * @file PWM_cahrt_controller.h
+ * @file PWM_chart_controller.h
  * @brief controller for change of PWM in time characteristics mode
  * @author by Szymon Markiewicz
  * @details http://www.inzynierdomu.pl/

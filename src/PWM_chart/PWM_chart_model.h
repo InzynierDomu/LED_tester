@@ -1,6 +1,6 @@
 /**
  * @file PWM_cahrt_model.h
- * @brief Model with structures for characteristic PWM change in time mode
+ * @brief Model with structures for change of PWM in time characteristics mode
  * @author by Szymon Markiewicz
  * @details http://www.inzynierdomu.pl/
  * @date 03-2022
@@ -19,7 +19,7 @@ using math_fun = uint16_t (*)(uint16_t, uint16_t);
 
 struct Math_function
 {
-  Math_function(std::string _name, math_fun _fun)
+  Math_function(std::string& _name, math_fun _fun)
   : name(_name)
   , fun(_fun)
   {}

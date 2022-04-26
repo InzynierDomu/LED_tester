@@ -1,3 +1,11 @@
+/**
+ * @file Color_tester_controller.h
+ * @brief Controller for color picker mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
 
 #include "Color_tester_model.h"
@@ -15,7 +23,6 @@ class Color_tester_controller : public IController
   public:
   Color_tester_controller(IHal& hal, Color_tester_model& model, IColor_tester_view* view);
   ~Color_tester_controller();
-  // Color_tester_controller& operator=(const Color_tester_controller& other);
 
   void active() override;
   void keyboar_reaction(Cursor_move move) override;

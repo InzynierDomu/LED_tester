@@ -1,3 +1,11 @@
+/**
+ * @file PWM_view.cpp
+ * @brief UI view for pwm control mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #include "PWM_view.h"
 
 #include <string>

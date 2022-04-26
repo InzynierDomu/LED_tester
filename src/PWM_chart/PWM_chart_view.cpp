@@ -1,3 +1,11 @@
+/**
+ * @file PWM_chart_view.cpp
+ * @brief UI view for pwm characteristics mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #include "PWM_chart_view.h"
 
 #include "Config.h"
@@ -71,7 +79,16 @@ void PWM_chart_view::print_math_fun_names()
   }
 }
 
-uint8_t PWM_chart_view::map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min, const uint8_t out_max)
+/**
+ * @brief linear maping
+ * @param x: input value
+ * @param in_min: min input value
+ * @param in_max: mac input value
+ * @param out_min: out min value
+ * @param out_max: out max value
+ * @return input value linear cast from input range to output range
+ */
+uint8_t PWM_chart_view::map(const uint16_t x, const uint16_t in_min, const uint16_t in_max, const uint16_t out_min, const uint16_t out_max)
 {
   return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }

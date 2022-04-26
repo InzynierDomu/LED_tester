@@ -1,3 +1,11 @@
+/**
+ * @file PWM_controller.h
+ * @brief Controller for manual pwm control mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
 
 #include "IController.h"

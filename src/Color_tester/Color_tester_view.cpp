@@ -1,3 +1,11 @@
+/**
+ * @file Color_tester_view.cpp
+ * @brief UI view for color picker mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #include "Color_tester_view.h"
 
 #include <cstdlib>
@@ -8,6 +16,11 @@
 namespace Color_tester
 {
 
+/**
+ * @brief constructor
+ * @param hal: hardware layer
+ * @param model: data related to PWM characteristics mode
+ */
 Color_tester_view::Color_tester_view(IHal& hal, Color_tester_model& model)
 : m_hal(hal)
 , m_model(model)

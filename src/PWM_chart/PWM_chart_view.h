@@ -1,3 +1,11 @@
+/**
+ * @file PWM_chart_view.h
+ * @brief UI view for pwm characteristics mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
 
 #include "IHal.h"
@@ -22,7 +30,7 @@ class PWM_chart_view : public IPWM_chart_view
   void print_chart();
   void print_math_fun();
   void print_math_fun_names();
-  uint8_t map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min, const uint8_t out_max);
+  uint8_t map(const uint16_t x, const uint16_t in_min, const uint16_t in_max, const uint16_t out_min, const uint16_t out_max);
 
   IHal& m_hal;
   PWM_chart_model& m_model;

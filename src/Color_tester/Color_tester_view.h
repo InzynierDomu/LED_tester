@@ -1,3 +1,11 @@
+/**
+ * @file Color_tester_view.h
+ * @brief UI view for color picker mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
 
 #include "Color_tester_model.h"
