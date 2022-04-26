@@ -51,10 +51,10 @@ void Hal::clear_screen()
 
 /**
  * @brief clear part of screen
- * @param position_x:
- * @param position_y:
- * @param width:
- * @param height:
+ * @param position_x: x area starting
+ * @param position_y: y area starting
+ * @param width: width clearing area
+ * @param height: heaight clearing area
  */
 void Hal::clear_part_screen(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height)
 {
@@ -63,8 +63,8 @@ void Hal::clear_part_screen(const uint16_t position_x, const uint16_t position_y
 
 /**
  * @brief clear rectangle cursor for menu
- * @param position_x:
- * @param position_y:
+ * @param position_x: x cursor postion
+ * @param position_y: y cursor postion
  */
 void Hal::clear_cursor(const uint16_t position_x, const uint16_t position_y)
 {
@@ -73,9 +73,9 @@ void Hal::clear_cursor(const uint16_t position_x, const uint16_t position_y)
 
 /**
  * @brief clear vertical cursor line for chart
- * @param position_x:
- * @param position_y:
- * @param
+ * @param position_x: x cursor postion
+ * @param position_y: y cursor postion
+ * @param lenght: cursor lenght
  */
 void Hal::clear_chart_cursor(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
 {
@@ -84,9 +84,9 @@ void Hal::clear_chart_cursor(const uint16_t position_x, const uint16_t position_
 
 /**
  * @brief print text on screen
- * @param
- * @param position_x:
- * @param position_y:
+ * @param text: text to print
+ * @param position_x: x text postion
+ * @param position_y: y text postion
  */
 void Hal::print_text(const std::string& text, const uint16_t position_x, const uint16_t position_y)
 {
@@ -95,9 +95,9 @@ void Hal::print_text(const std::string& text, const uint16_t position_x, const u
 }
 
 /**
- * @brief dtaw rectangle cursor for menu
- * @param position_x:
- * @param position_y:
+ * @brief draw rectangle cursor for menu
+ * @param position_x: x cursor postion
+ * @param position_y: y cursor postion
  */
 void Hal::draw_cursor(const uint16_t position_x, const uint16_t position_y)
 {
@@ -105,10 +105,10 @@ void Hal::draw_cursor(const uint16_t position_x, const uint16_t position_y)
 }
 
 /**
- * @brief
- * @param position_x:
- * @param position_y:
- * @param
+ * @brief draw vertical line cursor for chart
+ * @param position_x: x cursor postion
+ * @param position_y: y cursor postion
+ * @param lenght: cursor lenght
  */
 void Hal::draw_chart_cursor(const uint16_t position_x, const uint16_t position_y, const uint16_t lenght)
 {
@@ -116,11 +116,11 @@ void Hal::draw_chart_cursor(const uint16_t position_x, const uint16_t position_y
 }
 
 /**
- * @brief
- * @param position_x:
- * @param position_y:
- * @param
- * @param
+ * @brief draw rectangle black frame
+ * @param position_x: x frame postion
+ * @param position_y: y frame postion
+ * @param width: frame width
+ * @param height: frane height
  */
 void Hal::draw_frame(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height)
 {
@@ -128,12 +128,12 @@ void Hal::draw_frame(const uint16_t position_x, const uint16_t position_y, const
 }
 
 /**
- * @brief
- * @param position_x:
- * @param position_y:
- * @param
- * @param
- * @param
+ * @brief draw filled rectangle
+ * @param position_x: x rectangle postion
+ * @param position_y: y rectangle postion
+ * @param width: rectangle width
+ * @param height: rectangle height
+ * @param color: rectnagle color
  */
 void Hal::draw_rect(const uint16_t position_x, const uint16_t position_y, const uint16_t width, const uint16_t height, const uint16_t color)
 {
@@ -141,11 +141,11 @@ void Hal::draw_rect(const uint16_t position_x, const uint16_t position_y, const 
 }
 
 /**
- * @brief
- * @param position_x:
- * @param position_y:
- * @param
- * @param
+ * @brief draw gradient filled circle
+ * @param position_x: x circle postion
+ * @param position_y: y circle postion
+ * @param radius: circle radius
+ * @param value: start color in center gradient from black to yellow
  */
 void Hal::draw_gradient_circle(const uint16_t position_x, const uint16_t position_y, const uint16_t radius, const uint16_t value)
 {
@@ -164,12 +164,12 @@ void Hal::draw_gradient_circle(const uint16_t position_x, const uint16_t positio
 }
 
 /**
- * @brief
- * @param position_x:
- * @param position_y:
- * @param
- * @param
- * @param
+ * @brief draw chart
+ * @param position_x: x chart position
+ * @param position_y: y chart position
+ * @param size: chart size - width and height
+ * @param x_axis_name: description to x axis
+ * @param y_axis_name: description to y axis
  */
 void Hal::draw_chart_axes(const uint16_t position_x, const uint16_t position_y, const uint16_t size, const std::string& x_axis_name,
                           const std::string& y_axis_name)
@@ -186,9 +186,9 @@ void Hal::draw_chart_axes(const uint16_t position_x, const uint16_t position_y, 
 }
 
 /**
- * @brief
- * @param position_x:
- * @param position_y:
+ * @brief draw single point
+ * @param position_x: x point position
+ * @param position_y: y point position
  */
 void Hal::draw_point(const uint16_t position_x, const uint16_t position_y)
 {
@@ -196,8 +196,8 @@ void Hal::draw_point(const uint16_t position_x, const uint16_t position_y)
 }
 
 /**
- * @brief
- * @param
+ * @brief set WS2812 LED color
+ * @param color: color to set
  */
 void Hal::set_color_rgb(const uint32_t color)
 {
@@ -206,8 +206,8 @@ void Hal::set_color_rgb(const uint32_t color)
 }
 
 /**
- * @brief
- * @param
+ * @brief set pwm to LED
+ * @param duty: pwm duty
  */
 void Hal::set_PWM_output(const uint16_t duty)
 {
@@ -215,7 +215,7 @@ void Hal::set_PWM_output(const uint16_t duty)
 }
 
 /**
- * @brief
+ * @brief check joystick buttons
  */
 void Hal::check_button()
 {
@@ -255,8 +255,9 @@ void Hal::check_button()
 }
 
 /**
- * @brief
- * @param
+ * @brief check is button for change mode pressed
+ * @param mode: mode will be changed after another button be pressed
+ * @return ture if mode changed
  */
 bool Hal::check_button_mode(Mode& mode)
 {
@@ -287,9 +288,9 @@ bool Hal::check_button_mode(Mode& mode)
 }
 
 /**
- * @brief
- * @param
- * @param
+ * @brief set callback to joystick buttons
+ * @param callback: what will be called after button be pressed
+ * @param controller: controller own callback
  */
 void Hal::set_keyboard_callback(callback_cursor_move callback, IController* controller)
 {
