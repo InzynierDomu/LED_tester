@@ -28,6 +28,9 @@ Color_tester_view::Color_tester_view(IHal& hal, Color_tester_model& model)
 , m_shift_from_cursor(2)
 {}
 
+/**
+ * @brief print all for this mode after changing mode
+ */
 void Color_tester_view::print_screen()
 {
   m_hal.clear_screen();
@@ -48,7 +51,7 @@ void Color_tester_view::print_screen()
 }
 
 /**
- * @brief print color saturation
+ * @brief clear and print color saturation
  */
 void Color_tester_view::update_color_saturation()
 {
@@ -58,8 +61,21 @@ void Color_tester_view::update_color_saturation()
 }
 
 /**
- * @brief print 32bits color on screen
+ * @brief draw rectangle cursor on current color
  */
+void Color_tester_view::update_cursor()
+{
+  m_hal.draw_cursor(58, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)] - m_shift_from_cursor);
+}
+
+/**
+ * @brief clear rectangle cursor
+ */
+void Color_tester_view::clear_cursor()
+{
+  m_hal.clear_cursor(58, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)] - m_shift_from_cursor);
+}
+
 void Color_tester_view::update_color()
 {
   m_hal.draw_rect(200, 80, 80, 80, m_model.color.color_short);
@@ -69,16 +85,6 @@ void Color_tester_view::update_color()
   stream << std::setfill('0') << std::setw(6) << std::uppercase << std::hex << m_model.color.color_long;
   color_val += stream.str();
   m_hal.print_text(color_val, 179, 170);
-}
-
-void Color_tester_view::update_cursor()
-{
-  m_hal.draw_cursor(58, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)] - m_shift_from_cursor);
-}
-
-void Color_tester_view::clear_cursor()
-{
-  m_hal.clear_cursor(58, m_cursor_position_x[static_cast<Cursor_position_name>(m_model.position)] - m_shift_from_cursor);
 }
 
 void Color_tester_view::print_color(uint8_t position)

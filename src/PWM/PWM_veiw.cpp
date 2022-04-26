@@ -12,11 +12,20 @@
 
 namespace PWM
 {
+
+/**
+ * @brief constructor
+ * @param hal: hardware layer
+ * @param model: data related to manual pwm control mode
+ */    
 PWM_view::PWM_view(IHal& hal, PWM_model& model)
 : m_hal(hal)
 , m_model(model)
 {}
 
+/**
+ * @brief print all for this mode after changing mode
+ */
 void PWM_view::print_screen()
 {
   m_hal.clear_screen();
@@ -26,6 +35,9 @@ void PWM_view::print_screen()
   m_hal.draw_gradient_circle(240, 120, 40, m_model.duty);
 }
 
+/**
+ * @brief clear and print new duty value, change gradient color on screen
+ */
 void PWM_view::update_duty()
 {
   m_hal.clear_part_screen(50, 120, 50, 20);

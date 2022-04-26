@@ -32,6 +32,9 @@ PWM_controller::~PWM_controller()
   delete m_view;
 }
 
+/**
+ * @brief mode activation, relaod UI and releted hal part
+ */
 void PWM_controller::active()
 {
   m_view->print_screen();
@@ -39,6 +42,10 @@ void PWM_controller::active()
   m_hal.set_PWM_output(m_model.duty);
 }
 
+/**
+ * @brief callback reaction from joystick button pressed
+ * @param move: pressed button on joystick
+ */
 void PWM_controller::keyboar_reaction(Cursor_move move)
 {
   if (move == Cursor_move::up && m_model.duty < Config::PWM_max) 

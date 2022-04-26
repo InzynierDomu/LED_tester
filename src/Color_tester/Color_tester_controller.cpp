@@ -31,6 +31,9 @@ Color_tester_controller::~Color_tester_controller()
   delete m_view;
 }
 
+/**
+ * @brief mode activation, relaod UI and releted hal part
+ */
 void Color_tester_controller::active()
 {
   m_model.color.color_short = color16(m_model.color.color_saturation);
@@ -41,32 +44,9 @@ void Color_tester_controller::active()
 }
 
 /**
- * @brief convert rgb 8bits colors saturation table to 16bits
- * @return rgb color in 16bits format
+ * @brief callback reaction from joystick button pressed
+ * @param move: pressed button on joystick
  */
-uint16_t Color_tester_controller::color16(uint8_t* colors_saturation)
-{
-  uint8_t r = map(colors_saturation[0], 0, 255, 0, 31);
-  uint8_t g = map(colors_saturation[1], 0, 255, 0, 63);
-  uint8_t b = map(colors_saturation[2], 0, 255, 0, 31);
-  uint16_t color = b;
-  color += r << 11;
-  color += g << 5;
-  return color;
-}
-
-/**
- * @brief convert rgb 8bits colors saturation table to 32bits
- * @return rgb color in 32bits format
- */
-uint32_t Color_tester_controller::color32(uint8_t* colors_saturation)
-{
-  uint32_t color = colors_saturation[2];
-  color += colors_saturation[1] << 8;
-  color += colors_saturation[0] << 16;
-  return color;
-}
-
 void Color_tester_controller::keyboar_reaction(Cursor_move move)
 {
   if (move == Cursor_move::up || move == Cursor_move::down)
@@ -79,10 +59,25 @@ void Color_tester_controller::keyboar_reaction(Cursor_move move)
   }
 }
 
-/**
- * @brief change color saturation
- * @param move increase or decrease value
- */
+uint16_t Color_tester_controller::color16(uint8_t* colors_saturation)
+{
+  uint8_t r = map(colors_saturation[0], 0, 255, 0, 31);
+  uint8_t g = map(colors_saturation[1], 0, 255, 0, 63);
+  uint8_t b = map(colors_saturation[2], 0, 255, 0, 31);
+  uint16_t color = b;
+  color += r << 11;
+  color += g << 5;
+  return color;
+}
+
+uint32_t Color_tester_controller::color32(uint8_t* colors_saturation)
+{
+  uint32_t color = colors_saturation[2];
+  color += colors_saturation[1] << 8;
+  color += colors_saturation[0] << 16;
+  return color;
+}
+
 void Color_tester_controller::change_color(Cursor_move move)
 {
   if (move == Cursor_move::right && m_model.color.color_saturation[m_model.position] < 255)
@@ -100,10 +95,6 @@ void Color_tester_controller::change_color(Cursor_move move)
   m_hal.set_color_rgb(m_model.color.color_long);
 }
 
-/**
- * @brief moving circle cursor between colors
- * @param move up or down
- */
 void Color_tester_controller::move_cursor(Cursor_move move)
 {
   m_view->clear_cursor();
@@ -134,15 +125,6 @@ void Color_tester_controller::move_cursor(Cursor_move move)
   m_view->update_cursor();
 }
 
-/**
- * @brief linear maping
- * @param x: input value
- * @param in_min: min input value
- * @param in_max: mac input value
- * @param out_min: out min value
- * @param out_max: out max value
- * @return input value linear cast from input range to output range
- */
 uint8_t Color_tester_controller::map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min,
                                      const uint8_t out_max)
 {

@@ -1,3 +1,11 @@
+/**
+ * @file Hal.h
+ * @brief hardware control
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
 
 #include "Adafruit_NeoPixel.h"
@@ -36,8 +44,8 @@ class Hal : public IHal
   private:
   TFT_eSPI m_screen; ///< TFT screen 320x240
   Adafruit_NeoPixel m_ws_leds; ///< WS2812 LED
-  callback_cursor_move m_callback;
-  IController* m_controller;
+  callback_cursor_move m_callback;  ///< callback to reaction from joystick buttons
+  IController* m_controller;  ///< current controller
 
   const uint32_t m_keyboard_blocking_time_ms;
 };

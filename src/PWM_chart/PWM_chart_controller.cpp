@@ -33,6 +33,9 @@ PWM_chart_controller::~PWM_chart_controller()
   delete m_view;
 }
 
+/**
+ * @brief mode activation, relaod UI and releted hal part
+ */
 void PWM_chart_controller::active()
 {
   m_view->print_screen();
@@ -40,6 +43,10 @@ void PWM_chart_controller::active()
   m_hal.set_PWM_output(m_model.duty);
 }
 
+/**
+ * @brief callback reaction from joystick button pressed
+ * @param move: pressed button on joystick
+ */
 void PWM_chart_controller::keyboar_reaction(Cursor_move move)
 {
   if (move == Cursor_move::up || move == Cursor_move::down)
@@ -56,6 +63,10 @@ void PWM_chart_controller::keyboar_reaction(Cursor_move move)
   }
 }
 
+/**
+ * @brief change cursor position which math function is use
+ * @param move increase or decrease cursor position 
+ */
 void PWM_chart_controller::move_cursor(Cursor_move move)
 {
   m_view->clear_cursor();

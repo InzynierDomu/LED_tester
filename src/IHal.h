@@ -1,3 +1,11 @@
+/**
+ * @file IHal.h
+ * @brief interface hardware control
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
 
 #include <stdint.h>
