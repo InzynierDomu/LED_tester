@@ -15,7 +15,7 @@
 namespace PWM_chart
 {
 
-using math_fun = uint16_t (*)(uint16_t, u_int16_t);
+using math_fun = uint16_t (*)(uint16_t, uint16_t);
 
 struct Math_function
 {
@@ -31,7 +31,7 @@ struct Math_function
 namespace Math_functions
 {
 
-static uint16_t linear(uint16_t x, u_int16_t)
+static uint16_t linear(uint16_t x, uint16_t)
 {
   return x;
 }

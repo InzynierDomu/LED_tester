@@ -1,33 +1,37 @@
 /**
  * @file main.cpp
- * @brief Test device for LED one color, RGB and WS2812
+ * @brief Test device for LED one color and WS2812
  * @author by Szymon Markiewicz
  * @details http://www.inzynierdomu.pl/
  * @date 01-2022
  */
 
 #include "Color_tester/Color_tester_controller.h"
-#include "Color_tester/Color_tester_view.h"
 #include "Color_tester/Color_tester_model.h"
+#include "Color_tester/Color_tester_view.h"
 #include "Hal.h"
 #include "IController.h"
 #include "PWM/PWM_controller.h"
-#include "PWM/PWM_view.h"
 #include "PWM/PWM_model.h"
+#include "PWM/PWM_view.h"
 #include "PWM_chart/PWM_chart_controller.h"
-#include "PWM_chart/PWM_chart_view.h"
 #include "PWM_chart/PWM_chart_model.h"
+#include "PWM_chart/PWM_chart_view.h"
 
 #include <Arduino.h>
 
-Hal m_hal;
-Color_tester::Color_tester_model m_color_tester_model;
-PWM::PWM_model m_PWM_model;
-PWM_chart::PWM_chart_model m_PWM_chart_model;
-IController* m_controller;
+Hal m_hal; ///< hardware layer
+Color_tester::Color_tester_model m_color_tester_model; ///< data for color tester/picker mode
+PWM::PWM_model m_PWM_model; ///< data for pwm manual control mode
+PWM_chart::PWM_chart_model m_PWM_chart_model; ///< data for Change of PWM in time characteristics mode
+IController* m_controller; ///< dynamically changing controller to opararting on hal, model and connect with view
 
 Mode m_mode = Mode::ws_color_tester; ///< mode which device current running
 
+/**
+ * @brief according to new mode change view, and controller
+ * @param mode: mode to set active
+ */
 void change_mode(Mode mode)
 {
   if (m_controller != nullptr)

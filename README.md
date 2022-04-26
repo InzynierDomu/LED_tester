@@ -11,12 +11,12 @@ Simply device to help work with LEDs.
 The device in the plan has 3 operating modes:
 
 <ul>
-<li>WS2812 color tester</li>
+<li>WS2812 color picker</li>
 <li>PWM generator for simply LED</li>
-<li>Tester for characteristic PWM change in time</li>
+<li>Change of PWM in time characteristics</li>
 </ul>
 
-### WS2812 color tester
+### WS2812 color picker
 
 The device can control the intensity of red, green and blue colors on a scale from 0 to 255.<br>
 To do this, use the joystick: up / down to select a color; right / left to increase / decrease the color saturation value
@@ -26,7 +26,7 @@ To do this, use the joystick: up / down to select a color; right / left to incre
 The device can control the intensity LED light with PWM.
 To do this, use the joystick: up / down to change duty.
 
-### Tester for characteristic PWM change in time
+### Change of PWM in time characteristics
 
 The device can control the intensity LED light with PWM in time or manual based on mathematical function.
 To do this, use the joystick: up / down to select mathematical function; right / left to change input to mathematical function; center to run mathematical function from 0 to max PWM value.

@@ -1,3 +1,11 @@
+/**
+ * @file PWM_cahrt_controller.h
+ * @brief controller for change of PWM in time characteristics mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #pragma once
 
 #include "IController.h"
@@ -21,7 +29,7 @@ class PWM_chart_controller : public IController
   void move_cursor(Cursor_move move);
   void move_pwm_cursor(Cursor_move move);
   void run_pwm_fun();
-  
+
   IHal& m_hal;
   PWM_chart_model& m_model;
   IPWM_chart_view* m_view;

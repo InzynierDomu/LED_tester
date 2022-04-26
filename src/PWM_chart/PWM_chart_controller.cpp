@@ -1,16 +1,34 @@
+/**
+ * @file PWM_cahrt_controller.cpp
+ * @brief controller for change of PWM in time characteristics mode
+ * @author by Szymon Markiewicz
+ * @details http://www.inzynierdomu.pl/
+ * @date 03-2022
+ */
+
 #include "PWM_chart_controller.h"
 
 #include "Config.h"
 
-
 namespace PWM_chart
 {
+
+/**
+ * @brief constructor
+ * @param hal: hardware layer
+ * @param model: data related to PWM characteristics mode
+ * @param view: UI part to PWM characteristics mode
+ */
 PWM_chart_controller::PWM_chart_controller(IHal& hal, PWM_chart_model& model, IPWM_chart_view* view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
 {}
 
+
+/**
+ * @brief destructor
+ */
 PWM_chart_controller::~PWM_chart_controller()
 {
   delete m_view;
@@ -19,7 +37,7 @@ PWM_chart_controller::~PWM_chart_controller()
 void PWM_chart_controller::active()
 {
   m_view->print_screen();
-  m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);  
+  m_hal.set_keyboard_callback(&IController::keyboar_reaction, this);
   m_hal.set_PWM_output(m_model.duty);
 }
 
