@@ -24,6 +24,7 @@ The modes can be changed with buttons on top pic 1.
 <li>PWM generator for simply LED</li>
 <li>Change of PWM in time characteristics</li>
 </ol>
+
 ![mode_buttons](https://www.inzynierdomu.pl/wp-content/uploads/2019/12/IMG_5677_edited-scaled.jpg)
 pic 1. Mode changing buttons
 
