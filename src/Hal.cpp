@@ -17,7 +17,7 @@ Hal::Hal()
 : m_ws_leds{Config::led_ws_count, Config::led_ws_pin, NEO_GRB + NEO_KHZ800}
 , m_controller(nullptr)
 , m_callback(nullptr)
-, m_keyboard_blocking_time_ms(100)
+, m_keyboard_blocking_time_ms(120)
 {}
 
 /**
