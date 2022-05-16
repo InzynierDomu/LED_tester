@@ -18,7 +18,8 @@ The device in the plan has 3 operating modes:
 
 ### Mode changing
 
-The modes can be changed with buttons on top pic 1. 
+The modes can be changed with buttons on top pic 1.
+
 <ol>
 <li>WS2812 color picker</li>
 <li>PWM generator for simply LED</li>
@@ -61,7 +62,8 @@ WS2812 data pin is connected to BCM27. LED connected to BCM23.
 ## IDE
 
 The project is prepared for the Platform IO environment. A video on how to install such an environment can be watched on this [video](https://youtu.be/Em9NuebT2Kc).
-
+<br><br>
+Unit tests were prepared with googletest. The description of how it runs is in the [video](https://youtu.be/s575bCr_ZtA).
 <br><br>
 Formatting is done using clang-format. The description of the tool configuration is in the [video](https://youtu.be/xxuaOG0WjIE).
 <br><br>
