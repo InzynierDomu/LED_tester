@@ -34,4 +34,4 @@ jobs:
     - name: Install lib neo_pixel
       run: pio lib -g install https://github.com/adafruit/Adafruit_NeoPixel/archive/refs/tags/1.8.7.zip
     - name: Run PlatformIO
-      run: pio ci --board=seeed_wio_terminal
+      run: pio ci -e seeed_wio_terminal
