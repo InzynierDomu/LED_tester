@@ -40,7 +40,3 @@ jobs:
         pio platform install native
     - name: Run check
       run: pio check -e check
-    - name: Install gtest
-      run: pio lib -g install google/googletest @1.10.0
-    - name: Run UT
-      run: pio test -e UT
