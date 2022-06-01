@@ -1,4 +1,4 @@
-#include "../test/native/Color_tester_controller_test.h"
+#include "../test/Color_tester_controller_test.h"
 
 namespace Color_tester
 {

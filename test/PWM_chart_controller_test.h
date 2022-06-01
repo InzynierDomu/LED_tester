@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../test/native/mocks/PWM_chart_view_mock.h"
-#include "../test/native/mocks/Hal_mock.h"
+#include "../test/mocks/PWM_chart_view_mock.h"
+#include "../test/mocks/Hal_mock.h"
 #include "PWM_chart/PWM_chart_controller.cpp"
 #include "PWM_chart/PWM_chart_model.h"
 

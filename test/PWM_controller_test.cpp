@@ -1,4 +1,4 @@
-#include "../test/native/PWM_controller_test.h"
+#include "../test/PWM_controller_test.h"
 
 namespace PWM
 {

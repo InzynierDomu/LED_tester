@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../test/native/mocks/Color_tester_view_mock.h"
-#include "../test/native/mocks/Hal_mock.h"
+#include "../test/mocks/Color_tester_view_mock.h"
+#include "../test/mocks/Hal_mock.h"
 #include "Color_tester/Color_tester_controller.cpp"
 #include "Color_tester/Color_tester_model.h"
 

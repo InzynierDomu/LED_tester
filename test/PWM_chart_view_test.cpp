@@ -1,4 +1,4 @@
-#include "../test/native/PWM_chart_view_test.h"
+#include "../test/PWM_chart_view_test.h"
 
 namespace PWM_chart
 {
