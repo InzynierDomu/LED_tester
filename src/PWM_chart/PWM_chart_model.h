@@ -43,7 +43,7 @@ static uint16_t sin(uint16_t x, uint16_t max)
 
 static uint16_t pow(uint16_t x, uint16_t max)
 {
-  return std::pow(x/std::sqrt(max),2);
+  return std::pow(x / std::sqrt(max), 2);
 }
 
 } // namespace Math_functions
