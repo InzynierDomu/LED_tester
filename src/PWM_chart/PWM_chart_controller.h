@@ -30,9 +30,9 @@ class PWM_chart_controller : public IController
   void move_pwm_cursor(Cursor_move move);
   void run_pwm_fun();
 
-  IHal& m_hal;
-  PWM_chart_model& m_model;
-  IPWM_chart_view* m_view;
+  IHal& m_hal; ///< hardware layer
+  PWM_chart_model& m_model; ///< data model
+  IPWM_chart_view* m_view; ///< view
 };
 
 } // namespace PWM_chart

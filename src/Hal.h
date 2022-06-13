@@ -44,8 +44,8 @@ class Hal : public IHal
   private:
   TFT_eSPI m_screen; ///< TFT screen 320x240
   Adafruit_NeoPixel m_ws_leds; ///< WS2812 LED
-  callback_cursor_move m_callback;  ///< callback to reaction from joystick buttons
-  IController* m_controller;  ///< current controller
+  IController* m_controller; ///< current controller
+  callback_cursor_move m_callback; ///< callback to reaction from joystick buttons
 
   const uint32_t m_keyboard_blocking_time_ms;
 };

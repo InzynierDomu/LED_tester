@@ -17,7 +17,7 @@ namespace PWM
  * @brief constructor
  * @param hal: hardware layer
  * @param model: data related to manual pwm control mode
- */    
+ */
 PWM_view::PWM_view(IHal& hal, PWM_model& model)
 : m_hal(hal)
 , m_model(model)

@@ -32,9 +32,9 @@ class PWM_chart_view : public IPWM_chart_view
   void print_math_fun_names();
   uint8_t map(const uint16_t x, const uint16_t in_min, const uint16_t in_max, const uint16_t out_min, const uint16_t out_max);
 
-  IHal& m_hal;
-  PWM_chart_model& m_model;
-  const uint8_t m_chart_size;
+  IHal& m_hal; ///< hardware layer
+  PWM_chart_model& m_model; ///< data model
+  const uint8_t m_chart_size; ///< size chart axes
 };
 
 } // namespace PWM_chart

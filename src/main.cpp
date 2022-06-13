@@ -29,7 +29,7 @@ IController* m_controller; ///< dynamically changing controller to opararting on
 Mode m_mode = Mode::ws_color_tester; ///< mode which device current running
 
 /**
- * @brief according to new mode change view, and controller
+ * @brief according to new mode change view and controller
  * @param mode: mode to set active
  */
 void change_mode(Mode mode)

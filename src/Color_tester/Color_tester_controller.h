@@ -35,9 +35,9 @@ class Color_tester_controller : public IController
   void move_cursor(Cursor_move move);
   uint8_t map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min, const uint8_t out_max);
 
-  IHal& m_hal;
-  Color_tester_model& m_model;
-  IColor_tester_view* m_view;
+  IHal& m_hal; ///< hardware layer
+  Color_tester_model& m_model; ///< data model
+  IColor_tester_view* m_view; ///< view
 };
 
 } // namespace Color_tester

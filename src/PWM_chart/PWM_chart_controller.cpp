@@ -65,7 +65,7 @@ void PWM_chart_controller::keyboar_reaction(Cursor_move move)
 
 /**
  * @brief change cursor position which math function is use
- * @param move increase or decrease cursor position 
+ * @param move increase or decrease cursor position
  */
 void PWM_chart_controller::move_cursor(Cursor_move move)
 {

@@ -27,8 +27,8 @@ class PWM_view : public IPWM_view
   PWM_view(const PWM_view&);
   void print_pwm_duty();
 
-  IHal& m_hal;
-  PWM_model& m_model;
+  IHal& m_hal; ///< hardware layer
+  PWM_model& m_model; ///< data model
 };
 
 } // namespace PWM

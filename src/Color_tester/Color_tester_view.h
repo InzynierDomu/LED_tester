@@ -32,8 +32,8 @@ class Color_tester_view : public IColor_tester_view
   void update_color();
   void print_color(uint8_t position);
 
-  IHal& m_hal;
-  Color_tester_model& m_model;
+  IHal& m_hal; ///< hardware layer
+  Color_tester_model& m_model; ///< data model
   const uint16_t m_cursor_position_x[3]; ///< cursor position for colors
   const uint16_t m_shift_from_cursor; ///< difference for position cursor and saturation color value
 };

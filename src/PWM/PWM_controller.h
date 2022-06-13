@@ -27,9 +27,9 @@ class PWM_controller : public IController
   private:
   PWM_controller(const PWM_controller&);
 
-  IHal& m_hal;
-  PWM_model& m_model;
-  IPWM_view* m_view;
+  IHal& m_hal; ///< hardware layer
+  PWM_model& m_model; ///< data model
+  IPWM_view* m_view; ///< view
 };
 
 } // namespace PWM
