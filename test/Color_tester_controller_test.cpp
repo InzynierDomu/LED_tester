@@ -1,4 +1,4 @@
-#include "../test/Color_tester_controller_test.h"
+#include "Color_tester_controller_test.h"
 
 namespace Color_tester
 {
@@ -19,7 +19,7 @@ TEST_F(Color_tester_controller_test, active)
 TEST_F(Color_tester_controller_test, move_up_from_start)
 {
   EXPECT_CALL(view_mock, clear_cursor());
-  EXPECT_CALL(view_mock, update_cursor());  
+  EXPECT_CALL(view_mock, update_cursor());
   uut.keyboar_reaction(Cursor_move::up);
   ASSERT_EQ(model.position, 2);
 }
