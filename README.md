@@ -15,6 +15,8 @@ Simply device to help work with LEDs.
 
 ## About
 
+Project described: [note](https://www.inzynierdomu.pl/led-tester/) PL, [video](https://youtu.be/hn6j-gkVgh4) PL
+
 The device in the plan has 3 operating modes:
 
 <ul>
