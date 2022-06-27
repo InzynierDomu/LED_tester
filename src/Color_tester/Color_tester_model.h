@@ -1,5 +1,5 @@
 /**
- * @file PWM_cahrt_model.h
+ * @file Color_tester_model.h
  * @brief Model with structures for WS2812 color control mode
  * @author by Szymon Markiewicz
  * @details http://www.inzynierdomu.pl/
