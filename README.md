@@ -2,7 +2,7 @@
 
 Simply device to help work with LEDs.
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/InzynierDomu/LED_tester/CI?logo=github&style=flat-square)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/InzynierDomu/LED_tester/main.yml?logo=github&style=flat-square)
 ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/InzynierDomu/LED_tester?style=flat-square)
 <a href="https://inzynierdomu.github.io/LED_tester/">![GitHub docs deployments](https://img.shields.io/github/deployments/InzynierDomu/LED_tester/github-pages?label=docs&logo=BookStack&logoColor=white&style=flat-square)</a>
 <a href="https://discord.gg/KmW6mHdg">![Discord](https://img.shields.io/discord/815929748882587688?logo=discord&logoColor=green&style=flat-square)</a>
