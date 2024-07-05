@@ -19,6 +19,7 @@
 #include "PWM_chart/PWM_chart_view.h"
 
 #include <Arduino.h>
+#include <memory> 
 
 Hal m_hal; ///< hardware layer
 Color_tester::Color_tester_model m_color_tester_model; ///< data for color tester/picker mode
@@ -32,7 +33,7 @@ Mode m_mode = Mode::ws_color_tester; ///< mode which device current running
  * @brief according to new mode change view and controller
  * @param mode: mode to set active
  */
-void change_mode(Mode mode)
+void change_mode(Mode const mode)
 {
   if (m_controller != nullptr)
   {
@@ -43,8 +44,8 @@ void change_mode(Mode mode)
   {
     case Mode::ws_color_tester:
     {
-      Color_tester::Color_tester_view* color_tester_view = new Color_tester::Color_tester_view(m_hal, m_color_tester_model);
-      m_controller = new Color_tester::Color_tester_controller(m_hal, m_color_tester_model, color_tester_view);
+      std::unique_ptr<Color_tester::Color_tester_view>color_tester_view = std::make_unique<Color_tester::Color_tester_view>(m_hal, m_color_tester_model);
+      m_controller = new Color_tester::Color_tester_controller(m_hal, m_color_tester_model, std::move(color_tester_view));
       break;
     }
     case Mode::pwm_generator:

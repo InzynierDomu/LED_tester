@@ -7,7 +7,10 @@ Color_tester_controller_test::Color_tester_controller_test()
 : hal_mock{}
 , view_mock{}
 , uut(hal_mock, model, &view_mock)
-{}
+{
+  view_mock = std::make_unique<Color_tester_view_mock>();
+  uut(hal_mock, model, std::move(view_mock));
+}
 
 TEST_F(Color_tester_controller_test, active)
 {
