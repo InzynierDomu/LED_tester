@@ -46,6 +46,9 @@ jobs:
       - name: Run check
         run: pio check -e check
 
+      - name: Run UT
+        run: pio test --verbose --environment UT
+
       - name: doxygen
         uses: mattnotmitt/doxygen-action@v1.9.2
 
