@@ -44,7 +44,7 @@ void change_mode(Mode const mode)
   {
     case Mode::ws_color_tester:
     {
-      std::unique_ptr<Color_tester::Color_tester_view>color_tester_view = std::make_unique<Color_tester::Color_tester_view>(m_hal, m_color_tester_model);
+      std::unique_ptr<Color_tester::Color_tester_view>color_tester_view(new Color_tester::Color_tester_view(m_hal, m_color_tester_model));
       m_controller = new Color_tester::Color_tester_controller(m_hal, m_color_tester_model, std::move(color_tester_view));
       break;
     }
