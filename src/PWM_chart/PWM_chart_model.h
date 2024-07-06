@@ -15,6 +15,8 @@
 namespace PWM_chart
 {
 
+#define M_PI 3.14159265358979323846
+
 using math_fun = uint16_t (*)(uint16_t, uint16_t);
 
 struct Math_function
