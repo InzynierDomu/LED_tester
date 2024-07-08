@@ -58,7 +58,7 @@ void Color_tester_controller::keyboar_reaction(Cursor_move move)
   }
 }
 
-uint16_t Color_tester_controller::color16(uint8_t* colors_saturation)
+uint16_t Color_tester_controller::color16(const uint8_t* colors_saturation)
 {
   uint8_t r = map(colors_saturation[0], 0, 255, 0, 31);
   uint8_t g = map(colors_saturation[1], 0, 255, 0, 63);
@@ -69,7 +69,7 @@ uint16_t Color_tester_controller::color16(uint8_t* colors_saturation)
   return color;
 }
 
-uint32_t Color_tester_controller::color32(uint8_t* colors_saturation)
+uint32_t Color_tester_controller::color32(const uint8_t* colors_saturation)
 {
   uint32_t color = colors_saturation[2];
   color += colors_saturation[1] << 8;

@@ -30,8 +30,8 @@ class Color_tester_controller : public IController
 
   private:
   Color_tester_controller(const Color_tester_controller&);
-  uint16_t color16(uint8_t* colors_saturation);
-  uint32_t color32(uint8_t* colors_saturation);
+  uint16_t color16(const uint8_t* colors_saturation);
+  uint32_t color32(const uint8_t* colors_saturation);
   void change_color(Cursor_move move);
   void move_cursor(Cursor_move move);
   uint8_t map(const uint8_t x, const uint8_t in_min, const uint8_t in_max, const uint8_t out_min, const uint8_t out_max);
