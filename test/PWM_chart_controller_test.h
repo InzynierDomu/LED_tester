@@ -19,7 +19,7 @@ struct PWM_chart_controller_test : public ::testing::Test
   
   Hal_mock hal_mock;
   PWM_chart_model model;
-  PWM_chart_view_mock view_mock;
+  PWM_chart_view_mock* the_view_mock;
   PWM_chart_controller uut;
 };
 

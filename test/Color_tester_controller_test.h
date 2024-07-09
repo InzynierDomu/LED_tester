@@ -19,7 +19,7 @@ struct Color_tester_controller_test : public ::testing::Test
   
   Hal_mock hal_mock;
   Color_tester_model model;
-  std::unique_ptr<Color_tester_view_mock> view_mock;
+  std::shared_ptr<Color_tester_view_mock> the_view_mock;
   Color_tester_controller uut;
 };
 

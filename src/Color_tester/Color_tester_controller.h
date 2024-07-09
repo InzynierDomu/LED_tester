@@ -22,7 +22,7 @@ namespace Color_tester
 class Color_tester_controller : public IController
 {
   public:
-  Color_tester_controller(IHal& hal, Color_tester_model& model, std::unique_ptr<IColor_tester_view> view);
+  Color_tester_controller(IHal& hal, Color_tester_model& model, std::shared_ptr<IColor_tester_view> view);
   ~Color_tester_controller();
 
   void active() override;
@@ -38,7 +38,7 @@ class Color_tester_controller : public IController
 
   IHal& m_hal; ///< hardware layer
   Color_tester_model& m_model; ///< data model
-  std::unique_ptr<IColor_tester_view> m_view; ///< view
+  std::shared_ptr<IColor_tester_view> m_view; ///< view
 };
 
 } // namespace Color_tester
