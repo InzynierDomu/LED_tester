@@ -19,7 +19,7 @@ struct PWM_controller_test : public ::testing::Test
 
   Hal_mock hal_mock;
   PWM_model model;
-  PWM_view_mock view_mock;
+  std::shared_ptr<PWM_view_mock> view_mock;
   PWM_controller uut;
 };
 

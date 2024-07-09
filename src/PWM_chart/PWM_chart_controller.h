@@ -13,13 +13,15 @@
 #include "IPWM_chart_view.h"
 #include "PWM_chart_model.h"
 
+#include <memory>
+
 namespace PWM_chart
 {
 
 class PWM_chart_controller : public IController
 {
   public:
-  PWM_chart_controller(IHal& hal, PWM_chart_model& model, IPWM_chart_view* view);
+  PWM_chart_controller(IHal& hal, PWM_chart_model& model, std::shared_ptr<IPWM_chart_view> view);
   ~PWM_chart_controller();
 
   void active() override;
@@ -32,7 +34,7 @@ class PWM_chart_controller : public IController
 
   IHal& m_hal; ///< hardware layer
   PWM_chart_model& m_model; ///< data model
-  IPWM_chart_view* m_view; ///< view
+  std::shared_ptr<IPWM_chart_view> m_view; ///< view
 };
 
 } // namespace PWM_chart

@@ -12,13 +12,15 @@
 #include "IPWM_view.h"
 #include "PWM_model.h"
 
+#include <memory>
+
 namespace PWM
 {
 
 class PWM_controller : public IController
 {
   public:
-  PWM_controller(IHal& hal, PWM_model& model, IPWM_view* view);
+  PWM_controller(IHal& hal, PWM_model& model, std::shared_ptr<IPWM_view> view);
   ~PWM_controller();
 
   void active() override;
@@ -29,7 +31,7 @@ class PWM_controller : public IController
 
   IHal& m_hal; ///< hardware layer
   PWM_model& m_model; ///< data model
-  IPWM_view* m_view; ///< view
+  std::shared_ptr<IPWM_view> m_view; ///< view
 };
 
 } // namespace PWM

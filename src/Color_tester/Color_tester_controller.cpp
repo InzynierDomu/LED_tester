@@ -17,18 +17,16 @@ namespace Color_tester
  * @param model: data related to color picker mode
  * @param view: UI part to color picker mode
  */
-Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, std::unique_ptr<IColor_tester_view> view)
+Color_tester_controller::Color_tester_controller(IHal& hal, Color_tester_model& model, std::shared_ptr<IColor_tester_view> view)
 : m_hal(hal)
 , m_model(model)
-, m_view(std::move(view))
+, m_view(view)
 {}
 
 /**
  * @brief destructor
  */
-Color_tester_controller::~Color_tester_controller()
-{
-}
+Color_tester_controller::~Color_tester_controller() {}
 
 /**
  * @brief mode activation, relaod UI and releted hal part

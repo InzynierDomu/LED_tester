@@ -5,7 +5,7 @@ namespace Color_tester
 
 Color_tester_controller_test::Color_tester_controller_test()
 : view_mock(new Color_tester_view_mock())
-, uut(hal_mock, model, std::move(view_mock))
+, uut(hal_mock, model, view_mock)
 {}
 
 TEST_F(Color_tester_controller_test, active)

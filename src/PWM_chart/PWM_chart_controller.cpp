@@ -19,7 +19,7 @@ namespace PWM_chart
  * @param model: data related to PWM characteristics mode
  * @param view: UI part to PWM characteristics mode
  */
-PWM_chart_controller::PWM_chart_controller(IHal& hal, PWM_chart_model& model, IPWM_chart_view* view)
+PWM_chart_controller::PWM_chart_controller(IHal& hal, PWM_chart_model& model, std::shared_ptr<IPWM_chart_view> view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
@@ -30,7 +30,6 @@ PWM_chart_controller::PWM_chart_controller(IHal& hal, PWM_chart_model& model, IP
  */
 PWM_chart_controller::~PWM_chart_controller()
 {
-  delete m_view;
 }
 
 /**

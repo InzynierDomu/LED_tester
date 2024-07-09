@@ -19,7 +19,7 @@
 #include "PWM_chart/PWM_chart_view.h"
 
 #include <Arduino.h>
-#include <memory> 
+#include <memory>
 
 Hal m_hal; ///< hardware layer
 Color_tester::Color_tester_model m_color_tester_model; ///< data for color tester/picker mode
@@ -44,20 +44,20 @@ void change_mode(Mode const mode)
   {
     case Mode::ws_color_tester:
     {
-      std::unique_ptr<Color_tester::Color_tester_view>color_tester_view(new Color_tester::Color_tester_view(m_hal, m_color_tester_model));
+      std::unique_ptr<Color_tester::Color_tester_view> color_tester_view(new Color_tester::Color_tester_view(m_hal, m_color_tester_model));
       m_controller = new Color_tester::Color_tester_controller(m_hal, m_color_tester_model, std::move(color_tester_view));
       break;
     }
     case Mode::pwm_generator:
     {
-      PWM::PWM_view* pwm_view = new PWM::PWM_view(m_hal, m_PWM_model);
-      m_controller = new PWM::PWM_controller(m_hal, m_PWM_model, pwm_view);
+      std::unique_ptr<PWM::PWM_view> pwm_view(new PWM::PWM_view(m_hal, m_PWM_model));
+      m_controller = new PWM::PWM_controller(m_hal, m_PWM_model, std::move(pwm_view));
       break;
     }
     case Mode::characteristic_tester:
     {
-      PWM_chart::PWM_chart_view* pwm_chart_view = new PWM_chart::PWM_chart_view(m_hal, m_PWM_chart_model);
-      m_controller = new PWM_chart::PWM_chart_controller(m_hal, m_PWM_chart_model, pwm_chart_view);
+      std::unique_ptr<PWM_chart::PWM_chart_view> pwm_chart_view(new PWM_chart::PWM_chart_view(m_hal, m_PWM_chart_model));
+      m_controller = new PWM_chart::PWM_chart_controller(m_hal, m_PWM_chart_model, std::move(pwm_chart_view));
       break;
     }
     default:

@@ -7,6 +7,7 @@
  */
 
 #include "PWM_controller.h"
+
 #include "Config.h"
 
 namespace PWM
@@ -17,8 +18,8 @@ namespace PWM
  * @param hal: hardware layer
  * @param model: data related to manual pwm control mode
  * @param view: UI part to manual pwm control mode
- */  
-PWM_controller::PWM_controller(IHal& hal, PWM_model& model, IPWM_view* view)
+ */
+PWM_controller::PWM_controller(IHal& hal, PWM_model& model, std::shared_ptr<IPWM_view> view)
 : m_hal(hal)
 , m_model(model)
 , m_view(view)
@@ -27,10 +28,7 @@ PWM_controller::PWM_controller(IHal& hal, PWM_model& model, IPWM_view* view)
 /**
  * @brief destructor
  */
-PWM_controller::~PWM_controller()
-{
-  delete m_view;
-}
+PWM_controller::~PWM_controller() {}
 
 /**
  * @brief mode activation, relaod UI and releted hal part
@@ -48,7 +46,7 @@ void PWM_controller::active()
  */
 void PWM_controller::keyboar_reaction(Cursor_move move)
 {
-  if (move == Cursor_move::up && m_model.duty < Config::PWM_max) 
+  if (move == Cursor_move::up && m_model.duty < Config::PWM_max)
   {
     m_model.duty++;
   }
