@@ -17,6 +17,12 @@ Simply device to help work with LEDs.
 
 Project described: [note](https://www.inzynierdomu.pl/led-tester/) PL, [video](https://youtu.be/hn6j-gkVgh4) PL
 
+<div align="center">
+<h2>💖 Support</h2>
+
+<p>If any of my projects have helped you in your work, studies, or simply made your day better, please consider supporting my work. <strong><a href="https://tipo.live/p/inzynierdomu">LINK</a></strong></p>
+</div>
+
 The device in the plan has 3 operating modes:
 
 <ul>
