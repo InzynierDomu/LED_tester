@@ -10,7 +10,7 @@
 
 #include "Color_tester_model.h"
 #include "IColor_tester_view.h"
-#include "IHal.h "
+#include "IHal.h"
 
 #include <stdint.h>
 
