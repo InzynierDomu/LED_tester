@@ -14,8 +14,6 @@
 
 #include <stdint.h>
 
-
-
 namespace Color_tester
 {
 
