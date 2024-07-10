@@ -33,10 +33,6 @@ jobs:
 
       - name: Install platform
         run: pio platform install atmelsam
-      #      - name: Install lib lcd
-      #        run: pio lib -g install seeed-studio/Seeed_Arduino_LCD@1.6.0
-      #      - name: Install lib neo_pixel
-      #        run: pio lib -g install https://github.com/adafruit/Adafruit_NeoPixel/archive/refs/tags/1.8.7.zip
 
       - name: Run PlatformIO
         run: pio run -e seeed_wio_terminal
