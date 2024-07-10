@@ -6,20 +6,21 @@
  * @date 01-2022
  */
 
-#include "Color_tester/Color_tester_controller.h"
-#include "Color_tester/Color_tester_model.h"
-#include "Color_tester/Color_tester_view.h"
+#include "Color_tester_controller.h"
+#include "Color_tester_model.h"
+#include "Color_tester_view.h"
 #include "Hal.h"
-#include "IController.h"
-#include "PWM/PWM_controller.h"
-#include "PWM/PWM_model.h"
-#include "PWM/PWM_view.h"
-#include "PWM_chart/PWM_chart_controller.h"
-#include "PWM_chart/PWM_chart_model.h"
-#include "PWM_chart/PWM_chart_view.h"
+#include "../lib/IController.h"
+#include "PWM_chart_controller.h"
+#include "PWM_chart_model.h"
+#include "PWM_chart_view.h"
+#include "PWM_controller.h"
+#include "PWM_model.h"
+#include "PWM_view.h"
 
 #include <Arduino.h>
 #include <memory>
+
 
 Hal m_hal; ///< hardware layer
 Color_tester::Color_tester_model m_color_tester_model; ///< data for color tester/picker mode

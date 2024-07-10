@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../test/mocks/Hal_mock.h"
-#include "Color_tester/Color_tester_model.h"
-#include "Color_tester/Color_tester_view.cpp"
+#include "Color_tester_model.h"
+#include "Color_tester_view.h"
 
 #include "gtest/gtest.h"
 

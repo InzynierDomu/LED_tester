@@ -28,9 +28,7 @@ PWM_chart_controller::PWM_chart_controller(IHal& hal, PWM_chart_model& model, st
 /**
  * @brief destructor
  */
-PWM_chart_controller::~PWM_chart_controller()
-{
-}
+PWM_chart_controller::~PWM_chart_controller() {}
 
 /**
  * @brief mode activation, relaod UI and releted hal part

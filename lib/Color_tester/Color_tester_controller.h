@@ -8,13 +8,14 @@
 
 #pragma once
 
+#include "../IController.h"
 #include "Color_tester_model.h"
 #include "IColor_tester_view.h"
-#include "IController.h"
 #include "IHal.h"
 
 #include <memory>
 #include <stdint.h>
+
 
 namespace Color_tester
 {

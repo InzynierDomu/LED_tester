@@ -1,6 +1,6 @@
 #pragma once
 
-#include "PWM_chart/IPWM_chart_view.h"
+#include "IPWM_chart_view.h"
 
 #include "gmock/gmock.h"
 

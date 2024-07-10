@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../test/mocks/Hal_mock.h"
-#include "PWM_chart/PWM_chart_model.h"
-#include "PWM_chart/PWM_chart_view.cpp"
+#include "PWM_chart_model.h"
+#include "PWM_chart_view.h"
 
 #include "gtest/gtest.h"
 

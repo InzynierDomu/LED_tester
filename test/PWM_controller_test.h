@@ -2,8 +2,8 @@
 
 #include "../test/mocks/Hal_mock.h"
 #include "../test/mocks/PWM_view_mock.h"
-#include "PWM/PWM_controller.cpp"
-#include "PWM/PWM_model.h"
+#include "PWM_controller.h"
+#include "PWM_model.h"
 
 #include "gtest/gtest.h"
 

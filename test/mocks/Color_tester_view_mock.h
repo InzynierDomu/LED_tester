@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Color_tester/IColor_tester_view.h"
+#include "IColor_tester_view.h"
 
 #include "gmock/gmock.h"
 
