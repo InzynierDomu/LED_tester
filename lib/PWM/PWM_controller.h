@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "../IController.h"
+#include "IController.h"
 #include "IPWM_view.h"
 #include "PWM_model.h"
 

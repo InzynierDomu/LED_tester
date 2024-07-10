@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "../IController.h"
+#include "IController.h"
 #include "Color_tester_model.h"
 #include "IColor_tester_view.h"
 #include "IHal.h"
